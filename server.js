@@ -14,7 +14,7 @@ app.set('view engine', 'ejs')
 app.engine("html", require("ejs").renderFile)
 
 // Defining the statics (css, js, imgs ... etc) public folder
-app.use(express.static('public'));
+app.use(express.static('views'));
 
 // Giving the server access to user input
 app.use(bodyParser.json())
