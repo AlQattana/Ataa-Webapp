@@ -43,21 +43,18 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav">
-        <div class="container"><a class="navbar-brand" href="#page-top" style="color: rgb(167,135,26);padding: 1px;margin: -37px;">ATAA'</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive" style="width: auto;height: auto;margin: auto;padding: auto;">
-                <ul class="navbar-nav ml-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#services">manage accounts</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#portfolio">manage req\donations</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#charityStand">manage charity stands</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#team">display statics</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Sign out</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <section style="padding-bottom: 12px;margin-top: 29px;">
-        <h1 class="text-uppercase" style="text-align: center;color: #a7871a;">ban account</h1>
+        <h1 class="text-uppercase" style="text-align: center;color: #a7871a;">Search for Request</h1>
+        <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav">
+            <div class="container"><a class="navbar-brand" href="#page-top" style="color: rgb(167,135,26);padding: 1px;margin: -37px;">ATAA'</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive" style="width: auto;height: auto;margin: auto;padding: auto;">
+                    <ul class="navbar-nav ml-auto text-uppercase">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="Charity-Agent.html#services">manage charity&nbsp;</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </section>
     <section>
         <div class="col-md-12 search-table-col" style="margin-top: -168px;">
@@ -66,27 +63,27 @@
                 <table class="table table-bordered table-hover">
                     <thead class="bill-header cs">
                         <tr>
-                            <th id="trs-hd" class="col-lg-1" style="background: #a7871a;width: 654px;">NAME</th>
-                            <th class="text-uppercase col-lg-2" id="trs-hd" style="background: #a7871a;width: 766px;">Location</th>
-                            <th class="text-uppercase col-lg-2" id="trs-hd" style="background: #a7871a;width: 684px;">status</th>
-                            <th class="text-uppercase col-lg-2" id="trs-hd" style="background: #a7871a;width: 572px;">Member Since</th>
-                            <th id="trs-hd" class="col-lg-2" style="background: #a7871a;width: 275px;">Action</th>
+                            <th id="trs-hd" class="col-lg-1" style="background: #a7871a;width: 654px;">TYPE</th>
+                            <th class="text-uppercase col-lg-2" id="trs-hd" style="background: #a7871a;width: 766px;">User name</th>
+                            <th class="text-uppercase col-lg-2" id="trs-hd" style="background: #a7871a;width: 684px;">Date</th>
+                            <th class="text-uppercase col-lg-2" id="trs-hd" style="background: #a7871a;width: 572px;">location</th>
+                            <th id="trs-hd" class="col-lg-2" style="background: #a7871a;width: 275px;">STATUS</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="text-center" id="userName" name="userName">Ali</td>
-                            <td class="text-center" id="userLocation" name="userLocation">Riyadh</td>
-                            <td class="text-center" id="userStatus" name="userStatus">Active</td>
-                            <td class="text-center" id="userDate" name="userDate">2021</td>
-                            <td class="text-center"><button class="btn btn-danger text-center" style="margin-left: 5px;" type="submit">Ban</button></td>
+                            <td class="text-center">Request</td>
+                            <td class="text-center">Ali</td>
+                            <td class="text-center">15/10/2020</td>
+                            <td class="text-center">Riyadh</td>
+                            <td class="text-center" style="color: #009e60;">Fulfilled</td>
                         </tr>
                         <tr>
-                            <td class="text-center">Ahamd</td>
-                            <td class="text-center">Makkah</td>
-                            <td class="text-center">blocked</td>
-                            <td class="text-center">2021</td>
-                            <td class="text-center"><button class="btn btn-danger text-center" style="margin-left: 5px;background: #1c664a;border-color: #1c664a;" type="submit">Unban</button></td>
+                            <td class="text-center">Donation</td>
+                            <td class="text-center">Hamad</td>
+                            <td class="text-center">14/11/2020</td>
+                            <td class="text-center">Riyadh<br></td>
+                            <td class="text-center" style="color: #e5053a;">Unfulfilled</td>
                         </tr>
                     </tbody>
                 </table>
