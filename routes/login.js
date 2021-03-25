@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const loginController = require("../controllers/loginController");
 
 // Home page route.
 router.get('/', (req, res) => {
@@ -8,7 +9,11 @@ router.get('/', (req, res) => {
 
 // About page route.
 router.post('/', (req, res) => {
-  //console.log(req.body);
+    var email = req.body.email;
+    var password = req.body.password;
+  
+  loginController.signIn(email, password)
+  res.send("x")
 })
 
 module.exports = router;

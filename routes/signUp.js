@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const admin = require('../admin');
+const userController = require('../controllers/usersController')
 
 // Home page route.
 router.get('/', (req, res) => {
@@ -9,18 +9,23 @@ router.get('/', (req, res) => {
 
 // About page route.
 router.post('/', (req, res) => {
-
+  
   var user = {
     email : req.body.email,
     name : req.body.name,
     phone : req.body.phone,
     pass : req.body.password,
   }
+  
+  var role = req.body.signupas
 
+  if (role === "Charity") {
+    userController.addCharity(user)
+  } else {
+    userController.addCharityRep(user)
+  }
 
-admin.createUser(user);
-res.render('login');
-
+  res.redirect('login');
 })
 
 

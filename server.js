@@ -1,15 +1,19 @@
 // Importing dependencies
-'use strict';
 const express = require('express');
 const logger = require('morgan');
 const cors = require('cors');
-//const bodyParser = require('body-parser');
+const session = require('express-session');
 const config = require('./config');
 const admin = require('./admin');
 
 // Adding Routes
 const signUp = require('./routes/signUp');
 const login = require('./routes/login');
+const index = require('./routes/index');
+const searchCharity = require('./routes/searchCharity');
+const adminPage = require('./routes/adminPage');
+const banAccount = require('./routes/banAccount');
+const confirmCharity = require('./routes/confirmCharity');
 
 // Defining the port
 var port = process.env.PORT
@@ -28,6 +32,13 @@ app.use(express.static('views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
+app.use(session({
+    secret : 'some secret',
+    resave : false,
+    saveUninitialized : true,
+    //store : sessionStorage,
+    cookie : { maxAge : 1000 * 60 * 60 * 1}
+}))
 
 // for logging everything in the terminal
 app.use(logger('dev'))
@@ -35,14 +46,19 @@ app.use(logger('dev'))
 // Using routes
 app.use('/signUp', signUp);
 app.use('/login', login);
+app.use('/index', index)
+app.use('/searchCharity', searchCharity)
+app.use('/adminPage', adminPage)
+app.use('/banAccount', banAccount)
+app.use('/confirmCharity', confirmCharity)
+
 
 // Defining the routes
 app.get('/', (req, res) => {
-    res.render('index.html')
+    res.render('index')
 })
 
 // Making the app listinig for any request
 app.listen(port, function(){
     console.log('App is running http://localhost:' + port)
 })
-

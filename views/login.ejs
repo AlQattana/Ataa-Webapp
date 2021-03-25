@@ -47,123 +47,30 @@
         <div class="container"><a class="navbar-brand" href="#page-top" style="color: rgb(167,135,26);">ATAA'</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/signUp">Sign up</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="signUP">Sign up</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container-fluid">
         <div class="row mh-100vh">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-6 offset-1 offset-sm-2 offset-md-3 offset-lg-0 align-self-center d-lg-flex align-items-lg-center align-self-lg-stretch bg-white p-5 rounded rounded-lg-0 my-5 my-lg-0" id="login-block" style="background: #000000;">
+                <div class="m-auto w-lg-75 w-xl-50">
+                    <h2 class="text-info font-weight-light mb-5" style="color: #d0a14c;"><i class="fa fa-diamond" style="color: #fec503;border-color: #f3bd01;"></i>&nbsp; &nbsp;ATTA'</h2>
+                    <form action="login" method="POST">
+                        <div class="form-group"><label class="text-secondary">Email</label><input class="form-control" type="text" id="email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" inputmode="email" name="email"></div>
+                        <div class="form-group"><label class="text-secondary">Password</label><input class="form-control" type="password" id="password" required="" minlength="6" maxlength="20" name="password"><a class="btn btn-info mt-2" id="login" href="/adminPage" name="login">Log In</a></div>
+                    </form>
+                    <p class="mt-3 mb-0"><a class="text-info small" href="#" style="border-color: #a7871a;">Forgot your email or password?</a></p>
+                </div>
+            </div>
             <div class="col-lg-6 d-flex align-items-end" id="bg-block" style="background: url(&quot;assets/img/header-bg.jpg&quot;) center center / cover;">
                 <p class="ml-auto small text-dark mb-2"><br></p>
             </div>
-            <div class="col-10 col-sm-8 col-md-6 col-lg-6 offset-1 offset-sm-2 offset-md-3 offset-lg-0 align-self-center d-lg-flex align-items-lg-center align-self-lg-stretch bg-white p-5 rounded rounded-lg-0 my-5 my-lg-0" id="login-block" style="background: #000000;">
-                <div class="m-auto w-lg-75 w-xl-50" style="width: 282.25px;">
-                    <h2 class="text-info font-weight-light mb-5" style="color: #d0a14c;margin-top: 93px;">(name of the donation)</h2>
-                    <form>
-<<<<<<< Updated upstream:views/DonationsInfoPage.html
-                        <div class="form-group"><label class="text-secondary">Type</label>
-                            <p>clothes</p>
-                        </div>
-                        <div class="form-group"><label class="text-secondary">user name</label>
-                            <p>Ali</p>
-                        </div>
-                        <div class="form-group"><label class="text-secondary">Description</label>
-                            <p>clothes info.</p>
-                        </div>
-                        <div class="form-group"><label class="text-secondary">image</label>
-                            <hr style="opacity: 0;"><img style="margin-top: -34px;">
-                        </div>
-                        <div class="form-group"><label class="text-secondary">Location</label>
-                            <hr style="opacity: 0;"><img>
-                        </div>
-                        <hr>
-                    </form>
-=======
-                        <div class="form-group"><label class="text-secondary">Email</label><input class="form-control" type="text" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" inputmode="email"></div>
-                        <div class="form-group"><label class="text-secondary">Password</label><input class="form-control" type="password" required="" minlength="6" maxlength="20"><a class="btn btn-info mt-2" role="button" href="adminPage">Log In</a></div>
-                    </form>
-                    <p class="mt-3 mb-0"><a class="text-info small" href="#" style="border-color: #a7871a;">Forgot your email or password?</a></p>
->>>>>>> Stashed changes:views/login.ejs
-                </div>
-            </div>
         </div>
     </div>
-<<<<<<< Updated upstream:views/DonationsInfoPage.html
-    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav">
-        <div class="container"><a class="navbar-brand" href="#page-top" style="color: rgb(167,135,26);padding: 1px;margin: -37px;">ATAA'</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive" style="width: auto;height: auto;margin: auto;padding: auto;">
-                <ul class="navbar-nav ml-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="Charity-Agent.html#services">manage charity&nbsp;</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Sign out</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-=======
-    <section id="contact" style="background-image:url('assets/img/map-image.png');">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="text-uppercase section-heading">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">WRITE TO US</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <form id="contactForm" name="contactForm" novalidate="novalidate" data-bss-recipient="56c293100e71b9b9d916d81fd4bf1abe">
-                        <div class="form-row">
-                            <div class="col col-md-6">
-                                <div class="form-group"><input class="form-control" type="text" id="name" placeholder="Your Name *" required=""><small class="form-text text-danger flex-grow-1 help-block lead"></small></div>
-                                <div class="form-group"><input class="form-control" type="email" id="email" placeholder="Your Email *" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$"><small class="form-text text-danger help-block lead"></small></div>
-                                <div class="form-group"><input class="form-control" type="tel" placeholder="Your Phone *" required=""><small class="form-text text-danger help-block lead"></small></div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group"><textarea class="form-control" id="message" placeholder="Your Message *" required=""></textarea><small class="form-text text-danger help-block lead"></small></div>
-                            </div>
-                            <div class="col">
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-lg-12 text-center">
-                                <div id="success"></div><button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit" style="background: #fed136;">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Firebase Script -->
     
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
-
-    <script>
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    var firebaseConfig = {
-        apiKey: "AIzaSyBW08J2rPhUB1TeZYDcisQmsqc83vVEW_U",
-        authDomain: "ataa-770e0.firebaseapp.com",
-        databaseURL: "https://ataa-770e0-default-rtdb.firebaseio.com",
-        projectId: "ataa-770e0",
-        storageBucket: "ataa-770e0.appspot.com",
-        messagingSenderId: "881348702093",
-        appId: "1:881348702093:web:3001b3ed4fd21b897097c4",
-        measurementId: "G-5PD2H891N3"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
-    firebase.analytics();
-    </script>    
-
-
->>>>>>> Stashed changes:views/login.ejs
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/chart.min.js"></script>
