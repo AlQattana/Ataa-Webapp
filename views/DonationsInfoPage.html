@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
@@ -50,16 +48,16 @@
             </div>
             <div class="col-10 col-sm-8 col-md-6 col-lg-6 offset-1 offset-sm-2 offset-md-3 offset-lg-0 align-self-center d-lg-flex align-items-lg-center align-self-lg-stretch bg-white p-5 rounded rounded-lg-0 my-5 my-lg-0" id="login-block" style="background: #000000;">
                 <div class="m-auto w-lg-75 w-xl-50" style="width: 282.25px;">
-                    <h2 class="text-info font-weight-light mb-5" style="color: #d0a14c;margin-top: 93px;">(name of the donation)</h2>
+                    <h2 id="donationName" class="text-info font-weight-light mb-5" style="color: #d0a14c;margin-top: 93px;" name="donationName">(name of the donation)</h2>
                     <form>
                         <div class="form-group"><label class="text-secondary">Type</label>
-                            <p>clothes</p>
+                            <p id="type" name="type">clothes</p>
                         </div>
                         <div class="form-group"><label class="text-secondary">user name</label>
-                            <p>Ali</p>
+                            <p id="userName" name="userName">Ali</p>
                         </div>
                         <div class="form-group"><label class="text-secondary">Description</label>
-                            <p>clothes info.</p>
+                            <p id="description" name="description">clothes info.</p>
                         </div>
                         <div class="form-group"><label class="text-secondary">image</label>
                             <hr style="opacity: 0;"><img style="margin-top: -34px;">
@@ -85,7 +83,6 @@
     </nav>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/smart-forms.min.js"></script>
     <script src="assets/js/chart.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
