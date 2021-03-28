@@ -83,7 +83,7 @@
 
 .product-item button {
   border-radius: 2px;
-  background: #87bae1;
+  background: #009e60;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
   border: 0;
   color: #ffffff;
@@ -93,24 +93,24 @@
 }
 
 .product-item button:active {
-  background: #87bae1;
+  background: #009e60;
   color: #fff;
   border: 0;
 }
 
 .product-item button:focus {
-  background: #87bae1;
+  background: #009e60;
   outline: none;
   color: #fff;
 }
 
 .product-item button:hover {
-  background: #66ABE0;
+  background: #007647;
   color: #fff;
 }
 
 .product-item button:focus:active {
-  background: #87bae1;
+  background: #009e60;
   outline: none;
   color: #fff;
 }
