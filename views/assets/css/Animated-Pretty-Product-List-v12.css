@@ -99,7 +99,7 @@
 }
 
 .product-item button:focus {
-  background: #009e60;
+  background: #007647;
   outline: none;
   color: #fff;
 }
@@ -110,7 +110,7 @@
 }
 
 .product-item button:focus:active {
-  background: #009e60;
+  background: #007647;
   outline: none;
   color: #fff;
 }
