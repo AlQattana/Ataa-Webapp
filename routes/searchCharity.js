@@ -1,12 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var charityController = require('../controllers/charityController')
-var charitiesArray = charityController.getAllCharities();
 
-
-
-router.get('/', (req, res) => {
-  charitiesArray = charityController.getAllCharities();
+router.get('/', async (req, res) => {
+  var charitiesArray = await charityController.getAllCharities();
   res.render("searchCharity", {charitiesArray : charitiesArray})
 })
 

@@ -1,21 +1,17 @@
 const admin = require('../admin');
-const firebase = require('firebase-admin');
+const firebase = require('../db')
 const firestore = firebase.firestore();
 
 
-
-function signIn(email, password){
-    firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
-    // Signed in
-    console.log(userCredential.user);
-    // ...
+module.exports.signIn =  async function(email, password){
+  let user = await firebase.auth().signInWithEmailAndPassword(email, password).then(({user}) => {
+    return user;
+  }).catch((err) => {
+    console.log(err)
   })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  });
+  return user;
 }
 
-module.exports = {
-    signIn
+function signOut(){
+  firebase.auth().signOut();
 }

@@ -69,13 +69,13 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><a id="charityName" href="editCharityInformation.html" style="color: rgb(0,0,0);" name="charityName">AA</a></td>
+                                        <td><a id="charityName" href="/editCharityInformation" style="color: rgb(0,0,0);" name="charityName">AA</a></td>
                                         <td id="charityType" name="charityType">Food</td>
                                         <td id="charityLocation" name="charityLocation">Dahran</td>
                                     </tr>
                                     <% for(var i=0; i < charitiesArray.length; i++){%>   
                                     <tr> 
-                                        <td><%= charitiesArray[i].name %></td>
+                                        <td><a href="/editCharityInformation/<%=charitiesArray[i].id%>"> <%= charitiesArray[i].name %></a></td>
                                         <td><%= charitiesArray[i].specialty %></td>
                                         <td><%= charitiesArray[i].location %></td>
                                     </tr>

@@ -2,9 +2,12 @@
 const express = require('express');
 const logger = require('morgan');
 const cors = require('cors');
-const session = require('express-session');
+const cookieParser = require("cookie-parser");
+//const csrf = require("csurf");
 const config = require('./config');
 const admin = require('./admin');
+
+//const csrfMiddleware = csrf({ cookie: true });
 
 // Adding Routes
 const signUp = require('./routes/signUp');
@@ -14,6 +17,7 @@ const searchCharity = require('./routes/searchCharity');
 const adminPage = require('./routes/adminPage');
 const banAccount = require('./routes/banAccount');
 const confirmCharity = require('./routes/confirmCharity');
+const editCharityInformation = require('./routes/editCharityInformation')
 
 // Defining the port
 var port = process.env.PORT
@@ -32,16 +36,17 @@ app.use(express.static('views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
-app.use(session({
-    secret : 'some secret',
-    resave : false,
-    saveUninitialized : true,
-    //store : sessionStorage,
-    cookie : { maxAge : 1000 * 60 * 60 * 1}
-}))
+app.use(cookieParser());
+//app.use(csrfMiddleware);
 
 // for logging everything in the terminal
 app.use(logger('dev'))
+
+app.all("*", (req, res, next) => {
+    if(!res.cookie)
+        res.cookie("UID", "Undefined");
+    next()
+});
 
 // Using routes
 app.use('/signUp', signUp);
@@ -51,6 +56,7 @@ app.use('/searchCharity', searchCharity)
 app.use('/adminPage', adminPage)
 app.use('/banAccount', banAccount)
 app.use('/confirmCharity', confirmCharity)
+app.use('/editCharityInformation', editCharityInformation)
 
 
 // Defining the routes

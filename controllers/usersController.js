@@ -2,10 +2,9 @@ const admin = require('../admin');
 const firebase = require('firebase-admin');
 const firestore = firebase.firestore();
 const User = require('../modules/user');
-var usersArray = [];
 
-function addCharity(charity){
-  admin.auth().createUser({
+module.exports.addCharity = async function(charity){
+  await admin.auth().createUser({
     email: charity["email"],
     emailVerified: false,
     phoneNumber: charity["phone"],
@@ -26,8 +25,8 @@ function addCharity(charity){
   });
 };
 
-function addCharityRep(charityRep){
-  admin.auth().createUser({
+module.exports.addCharityRep = async function(charityRep){
+  await admin.auth().createUser({
     email: charityRep["email"],
     emailVerified: false,
     phoneNumber: charityRep["phone"],
@@ -48,9 +47,9 @@ function addCharityRep(charityRep){
   });
 };
 
-function getAllUsers(){
-  firestore.collection("users").get().then((querySnapshot) => {
-    usersArray = [];
+module.exports.getAllUsers = async function getAllUsers(){
+  var userArray = await firestore.collection("users").get().then((querySnapshot) => {
+      var usersArray = [];
         querySnapshot.forEach((userDoc) => {
             const user = new User(
                 userDoc.id,
@@ -61,28 +60,20 @@ function getAllUsers(){
             );
 
             usersArray.push(user);
-        })
-
-    })
-    return usersArray;
+        });
+      return usersArray;
+    });
+  return userArray;
 };
 
-async function banUser(uid){
+module.exports.banUser = async function(uid){
   //console.log(uid)
-  firestore.collection("users").doc(uid).update({status: "Inactive"});
+  await firestore.collection("users").doc(uid).update({status: "Inactive"});
   //await sleep(1000);
 
 };
 
-async function unBanUser(uid){
-  firestore.collection("users").doc(uid).update({status: "Active"});
+module.exports.unBanUser = async function(uid){
+  await firestore.collection("users").doc(uid).update({status: "Active"});
   //await sleep(1000);
-};
-
-module.exports = {
-  addCharity : addCharity,
-  addCharityRep : addCharityRep,
-  getAllUsers : getAllUsers,
-  banUser : banUser,
-  unBanUser : unBanUser
 };

@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const loginController = require("../controllers/loginController");
+const cookie = require('cookie-parser');
+
 
 // Home page route.
 router.get('/', (req, res) => {
@@ -8,12 +10,12 @@ router.get('/', (req, res) => {
 })
 
 // About page route.
-router.post('/', (req, res) => {
-    var email = req.body.email;
-    var password = req.body.password;
+router.post('/', async (req, res) => {
+  var email = req.body.email;
+  var password = req.body.password;
   
-  loginController.signIn(email, password)
-  res.send("x")
+  var user = await loginController.signIn(email, password);
+  res.cookie("UID", user.uid);
 })
 
 module.exports = router;
