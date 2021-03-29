@@ -54,9 +54,10 @@ module.exports.getAllUsers = async function getAllUsers(){
             const user = new User(
                 userDoc.id,
                 //userDoc.data().location,
-                userDoc.data().first_name,
+                (userDoc.data().first_name + ' ' + userDoc.data().last_name),
                 userDoc.data().type,
-                userDoc.data().status
+                userDoc.data().status,
+                userDoc.data().uid
             );
 
             usersArray.push(user);
@@ -67,10 +68,7 @@ module.exports.getAllUsers = async function getAllUsers(){
 };
 
 module.exports.banUser = async function(uid){
-  //console.log(uid)
   await firestore.collection("users").doc(uid).update({status: "Inactive"});
-  //await sleep(1000);
-
 };
 
 module.exports.unBanUser = async function(uid){

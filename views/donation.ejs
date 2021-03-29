@@ -59,70 +59,33 @@
         <h1 style="text-align: center;color: #a7871a;">Donation</h1>
         <div class="container">
             <div class="row product-list dev">
-                <div class="col-sm-6 col-md-4 product-item animation-element slide-top-left">
-                    <div class="product-container">
-                        <div class="row">
-                            <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <h2><a id="name" href="#" name="name">Donate</a></h2>
-                            </div>
-                            <div class="col-4"><a id="location" class="small-text" href="#" name="location">Location</a></div>
-                        </div>
-                        <div class="product-rating"></div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p id="donationInfo" class="product-description" name="donationInfo">info.</p>
+                <% for(var i = 0; i < donationsArray.length; i++){%>
+                    
+                    <% if(donationsArray[i].status !== "canceled" && donationsArray[i].status !== "fulfilled"){ %>
+                        <div class="col-sm-6 col-md-4 product-item animation-element">
+                            <div class="product-container">
                                 <div class="row">
-                                    <div class="col-6" style="text-align: center;"><button class="btn btn-light" type="submit">cancel</button></div>
+                                    <div class="col-md-12"><a class="product-image" href="#"><img src="<%=donationsArray[i].image%>"></a></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h2><a id="name" href="#" name="name"><%=donationsArray[i].type%></a></h2>
+                                    </div>
+                                    <div class="col-4"><a id="location" class="small-text" href="#" name="location"><%=donationsArray[i].location%></a></div>
+                                </div>
+                                <div class="product-rating"></div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p id="donationInfo" class="product-description" name="donationInfo"><%=donationsArray[i].desc%></p>
+                                        <div class="row">
+                                            <div class="col-6" style="text-align: center;"><a class="btn btn-light" href="donation/cancel/<%=donationsArray[i].id%>">cancel</a></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 product-item animation-element slide-rotate-clockwise">
-                    <div class="product-container">
-                        <div class="row">
-                            <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <h2><a id="name" href="#" name="name">Donate1</a></h2>
-                            </div>
-                            <div class="col-4"><a id="location" class="small-text" href="#" name="location">Location</a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p id="donationInfo" class="product-description" name="donationInfo">info.</p>
-                                <div class="row">
-                                    <div class="col-6" style="text-align: center;"><button class="btn btn-light" type="submit">cancel</button></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 product-item animation-element slide-top-right">
-                    <div class="product-container">
-                        <div class="row">
-                            <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <h2><a id="name" href="#" name="name">Donate2</a></h2>
-                            </div>
-                            <div class="col-4"><a id="location" class="small-text" href="#" name="location">Location</a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p id="donationInfo" class="product-description" name="donationInfo">info.</p>
-                                <div class="row">
-                                    <div class="col-6" style="text-align: center;"><button class="btn btn-light" type="submit">cancel</button></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <%}%>
+                <%}%>
             </div>
         </div>
     </section>
