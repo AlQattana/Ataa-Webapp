@@ -42,30 +42,37 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row mh-100vh">
-            <div class="col-lg-6 d-flex align-items-end" id="bg-block" style="background: url(&quot;assets/img/header-bg.jpg&quot;) center center / cover;">
-                <p class="ml-auto small text-dark mb-2"><br></p>
-            </div>
-            <div class="col-10 col-sm-8 col-md-6 col-lg-6 offset-1 offset-sm-2 offset-md-3 offset-lg-0 align-self-center d-lg-flex align-items-lg-center align-self-lg-stretch bg-white p-5 rounded rounded-lg-0 my-5 my-lg-0" id="login-block" style="background: #000000;">
-                <div class="m-auto w-lg-75 w-xl-50">
-                    <h2 id="standName" class="text-info font-weight-light mb-5" style="color: #d0a14c;">(name of the charity stand)</h2>
-                    <form>
-                        <div class="form-group"><label class="text-secondary">Type</label><select class="form-control" id="standType" neme="standType">
-                                <option value="">Water</option>
-                                <option value="">Clothes</option>
-                                <option value="">Furniture</option>
-                            </select></div>
-                        <div class="form-group"><label class="text-secondary">Location</label><input class="form-control" type="text" id="location" placeholder="Address" disabled="" name="location"><button class="btn btn-primary" type="button">change location</button></div>
-                        <hr>
-                        <div class="form-group">
-                            <div class="btn-group" role="group"><button class="btn btn-primary" id="save" type="submit" name="save">Save</button><button class="btn btn-primary" id="deactive" type="submit" style="margin-left: 58px;" name="deactive">Deactivate</button></div>
+    <section style="margin-top: -4px;">
+        <h1 style="text-align: center;color: #a7871a;">Periodic Donation</h1>
+        <div class="container">
+            <div class="row product-list dev">
+                <% for(var i = 0; i < periodicDonationsArray.length; i++){%>
+                    <div class="col-sm-6 col-md-4 product-item animation-element">
+                        <div class="product-container">
+                            <div class="row">
+                                <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8">
+                                    <h2><%=periodicDonationsArray[i].type%></h2>
+                                </div>
+                                <div class="col-4"><a class="small-text" href="#" name="location"><%=periodicDonationsArray[i].location%></a></div>
+                            </div>
+                            <div class="product-rating"></div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="product-description" name="info">Status: <%=periodicDonationsArray[i].status%></p>
+                                    <div class="row text-center">
+                                        <div class="col-6"><a class="btn btn-light" href="/periodicDonation/pause/<%=periodicDonationsArray[i].id%>" name="pause">Pause</a></div><a class="btn btn-light" type="submit" style="margin-left: 45px;" href="/periodicDonation/terminate/<%=periodicDonationsArray[i].id%>" name="terminate"><strong>terminate</strong></a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                <%}%>
             </div>
         </div>
-    </div>
+    </section>
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav">
         <div class="container"><a class="navbar-brand" href="#page-top" style="color: rgb(167,135,26);padding: 1px;margin: -37px;">ATAA'</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive" style="width: auto;height: auto;margin: auto;padding: auto;">

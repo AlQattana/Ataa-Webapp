@@ -42,74 +42,66 @@
 </head>
 
 <body>
-    <section style="margin-top: -4px;">
-        <h1 style="text-align: center;color: #a7871a;">Periodic Donation</h1>
+    <section style="padding-bottom: 12px;">
+        <h1 class="text-uppercase" style="text-align: center;color: #a7871a;">Manage Charity Stand</h1>
+    </section>
+    <section>
+        <div class="container" style="margin-top: -121px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">All&nbsp;<span class="badge badge-pill badge-primary">11</span></a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" role="tabpanel" id="tab-1">
+                                <ul class="thread-list">
+                                    <%for(var i = 0; i < charityStandsArray.length; i++) {%>
+                                        <%if(charityStandsArray[i].status == "pending") {%>
+                                            <li class="thread"><span id="dateArrive" class="time" name="dateArrive">Apr 21</span><span id="nameStand" class="title" name="nameStand"><%=charityStandsArray[i].type%></span><span class="icon"> <a class="subscribe" href="/charityStand/confirm/<%=charityStandsArray[i].id%>"><i class="icon ion-ios-checkmark-outline" id="accept" name="accept"></i></a><a class="flag" href="/charityStand/reject/<%=charityStandsArray[i].id%>"><i class="icon ion-android-cancel" id="reject" name="reject"></i></a></span></li>
+                                        <%}%>
+                                    <%}%>
+                                </ul>
+                            </div>
+                            <div class="tab-pane" role="tabpanel" id="tab-2"></div>
+                            <div class="tab-pane" role="tabpanel" id="tab-3"></div>
+                            <div class="tab-pane" role="tabpanel" id="tab-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="margin-top: -252px;">
+        <h1 style="text-align: center;color: #a7871a;">Active charity stand</h1>
         <div class="container">
             <div class="row product-list dev">
-                <div class="col-sm-6 col-md-4 product-item animation-element slide-top-left">
-                    <div class="product-container">
-                        <div class="row">
-                            <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <h2><a href="#" name="donationName">Periodic Donate</a></h2>
-                            </div>
-                            <div class="col-4"><a class="small-text" href="#" name="location">Location</a></div>
-                        </div>
-                        <div class="product-rating"></div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="product-description" name="info">info.</p>
-                                <div class="row text-center">
-                                    <div class="col-6"><button class="btn btn-light" type="submit" name="pause">Pause</button></div><button class="btn btn-light" type="submit" style="margin-left: 45px;" name="terminate"><strong>terminate</strong></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 product-item animation-element slide-rotate-clockwise">
-                    <div class="product-container">
-                        <div class="row">
-                            <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <h2><a href="#" name="donationName"><strong>Periodic Donate</strong><br></a></h2>
-                            </div>
-                            <div class="col-4"><a class="small-text" href="#" name="location">Location</a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="product-description" name="info">info.</p>
+                <%for(var i = 0; i < charityStandsArray.length; i++) {%>
+                    <%if(charityStandsArray[i].status == "Active") {%>
+                        <div class="col-sm-6 col-md-4 product-item animation-element">
+                            <div class="product-container">
                                 <div class="row">
-                                    <div class="col-6" style="text-align: center;"><button class="btn btn-light product-description" type="submit" name="pause"><strong>Pause</strong></button></div><button class="btn btn-light" type="submit" style="margin-left: 45px;" name="terminate"><strong>terminate</strong></button>
+                                    <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 product-item animation-element slide-top-right">
-                    <div class="product-container">
-                        <div class="row">
-                            <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <h2><a href="#" name="donationName">Periodic Donate</a></h2>
-                            </div>
-                            <div class="col-4"><a class="small-text" href="#" name="location">Location</a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="product-description" name="info">info.</p>
                                 <div class="row">
-                                    <div class="col-6" style="text-align: center;"><button class="btn btn-light product-description" type="submit" name="pause"><strong>Pause</strong></button></div><button class="btn btn-light" type="submit" style="margin-left: 45px;" name="terminate"><strong>terminate</strong></button>
+                                    <div class="col-8">
+                                        <h2><%= charityStandsArray[i].type%></h2>
+                                    </div>
+                                    <div class="col-4"><a id="location" class="small-text" href="#" name="location"><%=charityStandsArray[i].location%></a></div>
+                                </div>
+                                <div class="product-rating"></div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p id="standInfo" class="product-description" neme="standInfo"><%=charityStandsArray[i].description%></p>
+                                        <div class="row">
+                                            <div class="col-6" style="text-align: center;"><a class="btn btn-light" role="button" href="/EditcharityStand/<%=charityStandsArray[i].id%>">Edit</a></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    <%}%>
+                <%}%>
             </div>
         </div>
     </section>

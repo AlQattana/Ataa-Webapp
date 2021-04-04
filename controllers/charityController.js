@@ -4,6 +4,8 @@ const firestore = firebase.firestore();
 const Charity = require("../modules/charity")
 const Donation = require('../modules/donation')
 const DonationRequests = require('../modules/donationsRequests')
+const CharityStand = require('../modules/charityStand');
+const PeriodicDonation = require('../modules/periodicDonation');
 
 // This function returns an array of Charities from the database
 module.exports.getAllCharities = async function(){
@@ -22,6 +24,25 @@ module.exports.getAllCharities = async function(){
     return charitiesArray;
   });
   return charitiesArray;
+};
+
+module.exports.getAllCharityStands = async function(){
+  var charityStandsArray = await firestore.collection("charity_stands").get().then((querySnapshot) => {
+    var charityStandsArray = [];
+    querySnapshot.forEach((charityStandDoc) => {
+        const charityStand = new CharityStand(
+          charityStandDoc.id,
+          charityStandDoc.data().added_by,
+          charityStandDoc.data().description,
+          charityStandDoc.data().location,
+          charityStandDoc.data().status,
+          charityStandDoc.data().type
+        );
+        charityStandsArray.push(charityStand);
+    });
+    return charityStandsArray;
+  });
+  return charityStandsArray;
 };
 
 module.exports.getAllDonations = async function(){
@@ -69,6 +90,26 @@ module.exports.getAllDonationRequests = async function(){
   return donationRequestsArray;
 };
 
+module.exports.getAllPeriodicDonations = async function(){
+  var periodicDonationArray = await firestore.collection("periodic_donations").get().then((querySnapshot) => {
+    var periodicDonationArray = [];
+    querySnapshot.forEach((periodicDonationDoc) => {
+      const periodicDonation = new PeriodicDonation(
+        periodicDonationDoc.id,
+        periodicDonationDoc.data().date,
+        periodicDonationDoc.data().days,   
+        periodicDonationDoc.data().frequency,
+        periodicDonationDoc.data().status,
+        periodicDonationDoc.data().type,
+        periodicDonationDoc.data().uid,
+        );
+        periodicDonationArray.push(periodicDonation);
+    });
+    return periodicDonationArray;
+  });
+  return periodicDonationArray;
+};
+
 // This function changes the state of charity to "Active"
 module.exports.confirmCharity = async function(cid){
     await firestore.collection("charities").doc(cid).update({status: "Active"});
@@ -77,6 +118,28 @@ module.exports.confirmCharity = async function(cid){
 // This function changes the state of charity to "Rejected"  
 module.exports.rejectCharity = async function(cid){
     await firestore.collection("charities").doc(cid).update({status: "Rejected"});
+};
+
+// This function changes the state of charity to "Active"
+module.exports.confirmCharityStand = async function(cid){
+  await firestore.collection("charity_stands").doc(cid).update({status: "Active"});
+};
+
+// This function changes the state of charity to "Rejected"  
+module.exports.rejectCharityStand = async function(cid){
+  await firestore.collection("charity_stands").doc(cid).update({status: "Rejected"});
+};
+
+module.exports.deactivateCharityStand = async function(cid){
+  await firestore.collection("charity_stands").doc(cid).update({status: "Inactive"});
+};
+
+module.exports.pausePeriodicDonation = async function(cid){
+  await firestore.collection("periodic_donations").doc(cid).update({status: "Paused"});
+};
+
+module.exports.terminatePeriodicDonation = async function(cid){
+  await firestore.collection("periodic_donations").doc(cid).update({status: "Terminated"});
 };
 
 module.exports.cancelDonation = async function(uid){
