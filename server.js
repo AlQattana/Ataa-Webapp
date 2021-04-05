@@ -22,7 +22,10 @@ const searchDonationRequest = require('./routes/searchDonationRequest');
 const donation = require('./routes/donation')
 const charityStand = require('./routes/charityStand');
 const EditCharityStand = require('./routes/EditCharityStand');
-const periodicdonation = require('./routes/periodicdonation')
+const periodicdonation = require('./routes/periodicdonation');
+const charityRequest = require('./routes/charity-request');
+const charityDonations = require('./routes/charity-donations');
+const CharityAgent = require('./routes/Charity-Agent');
 
 // Defining the port
 var port = process.env.PORT
@@ -68,6 +71,9 @@ app.use("/donation", donation);
 app.use('/charityStand', charityStand);
 app.use('/EditCharityStand', EditCharityStand);
 app.use('/periodicdonation', periodicdonation);
+app.use('/charity-request', charityRequest);
+app.use('/charity-donations', charityDonations);
+app.use('/Charity-Agent', CharityAgent);
 
 
 

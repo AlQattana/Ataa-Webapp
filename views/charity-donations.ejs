@@ -43,73 +43,35 @@
 
 <body>
     <section style="margin-top: -4px;">
-        <h1 class="text-uppercase" style="text-align: center;color: #a7871a;">Request</h1>
+        <h1 class="text-uppercase" style="text-align: center;color: #a7871a;">Donations</h1>
         <div class="container">
             <div class="row product-list dev">
-                <div class="col-sm-6 col-md-4 product-item animation-element slide-top-left">
-                    <div class="product-container">
-                        <div class="row">
-                            <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <h2><a href="#">Donation</a></h2>
-                            </div>
-                            <div class="col-4"><a class="small-text" href="#">Location</a></div>
-                        </div>
-                        <div class="product-rating"></div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="product-description">info.</p>
-                                <div class="row text-center">
-                                    <div class="col-6"><a class="btn btn-light" role="button" href="charity-notify.html">Fulfill</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 product-item animation-element slide-rotate-clockwise">
-                    <div class="product-container">
-                        <div class="row">
-                            <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <h2><a href="#"><strong>Donation</strong><br></a></h2>
-                            </div>
-                            <div class="col-4"><a class="small-text" href="#">Location</a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="product-description">info.</p>
+                <%for (var i = 0; i < donationsArray.length; i++){%>
+                    <%if (donationsArray[i].status != "collected"){%>
+                        <div class="col-sm-6 col-md-4 product-item animation-element">
+                            <div class="product-container">
                                 <div class="row">
-                                    <div class="col-6" style="text-align: center;"><a class="btn btn-light" role="button"><strong>Fulfill</strong></a></div>
+                                    <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 product-item animation-element slide-top-right">
-                    <div class="product-container">
-                        <div class="row">
-                            <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <h2><a href="#">Donation</a></h2>
-                            </div>
-                            <div class="col-4"><a class="small-text" href="#">Location</a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="product-description">info.</p>
                                 <div class="row">
-                                    <div class="col-6" style="text-align: center;"><a class="btn btn-light" role="button" style="text-align: center;"><strong>Fulfill</strong></a></div>
+                                    <div class="col-8">
+                                        <h2><a href="#"><%=donationsArray[i].type%></a></h2>
+                                    </div>
+                                    <div class="col-4"><a class="small-text" href="#"><%=donationsArray[i].location%></a></div>
+                                </div>
+                                <div class="product-rating"></div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="product-description">Status: <%=donationsArray[i].status%></p>
+                                        <div class="row text-center">
+                                            <div class="col-6"><a class="btn btn-light" role="button" href="/charity-donationss/collect/<%=donationsArray[i].id%>">Collect</a></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    <%}%>
+                <%}%>
             </div>
         </div>
     </section>
@@ -117,7 +79,7 @@
         <div class="container"><a class="navbar-brand" href="#page-top" style="color: rgb(167,135,26);padding: 1px;margin: -37px;">ATAA'</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive" style="width: auto;height: auto;margin: auto;padding: auto;">
                 <ul class="navbar-nav ml-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="Charity-Agent.html#services">manage charity&nbsp;</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="Charity-Agent#services">manage charity&nbsp;</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index">Sign out</a></li>
                 </ul>
             </div>

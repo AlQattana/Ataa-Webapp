@@ -145,3 +145,11 @@ module.exports.terminatePeriodicDonation = async function(cid){
 module.exports.cancelDonation = async function(uid){
   await firestore.collection("donations").doc(uid).update({status: "canceled"});
 };
+
+module.exports.markDonationAsCollected = async function(cid){
+  await firestore.collection("donations").doc(cid).update({status: "collected"});
+};
+
+module.exports.markDonationRequestAsFulfilled = async function(cid){
+  await firestore.collection("donation_requests").doc(cid).update({status: "fulfilled"});
+};
