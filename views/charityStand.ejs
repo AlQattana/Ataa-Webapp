@@ -51,34 +51,16 @@
                 <div class="col-md-12">
                     <div>
                         <ul class="nav nav-tabs" role="tablist">
-<<<<<<< HEAD
                             <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">All&nbsp;<span class="badge badge-pill badge-primary">11</span></a></li>
-=======
-                            <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">All&nbsp;</a></li>
->>>>>>> origin/addingAllPages
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" role="tabpanel" id="tab-1">
                                 <ul class="thread-list">
-<<<<<<< HEAD
                                     <%for(var i = 0; i < charityStandsArray.length; i++) {%>
                                         <%if(charityStandsArray[i].status == "pending") {%>
                                             <li class="thread"><span id="dateArrive" class="time" name="dateArrive">Apr 21</span><span id="nameStand" class="title" name="nameStand"><%=charityStandsArray[i].type%></span><span class="icon"> <a class="subscribe" href="/charityStand/confirm/<%=charityStandsArray[i].id%>"><i class="icon ion-ios-checkmark-outline" id="accept" name="accept"></i></a><a class="flag" href="/charityStand/reject/<%=charityStandsArray[i].id%>"><i class="icon ion-android-cancel" id="reject" name="reject"></i></a></span></li>
                                         <%}%>
                                     <%}%>
-=======
-                                    <li class="thread"><span id="dateArrive" class="time" name="dateArrive">Apr 21</span><span id="nameStand" class="title" name="nameStand">name of the stand</span><span class="icon"> <a class="subscribe" href="javascript:void(0)"><i class="icon ion-ios-checkmark-outline" id="accept" name="accept"></i></a><a class="flag" href="javascript:void(0)"><i class="icon ion-android-cancel" id="reject" name="reject"></i></a></span></li>
-                                    <li class="thread"><span class="time">Apr 20</span><span class="title"><strong>name of the charity stand</strong></span><span class="icon"> <a class="subscribe" href="javascript:void(0)"><i class="icon ion-ios-checkmark-outline"></i></a><a class="flag" href="javascript:void(0)"><i class="icon ion-android-cancel"></i></a></span></li>
-                                    <li class="thread"><span class="time">Apr 20</span><span class="title"><strong>name of the charity stand</strong></span><span class="icon"> <a class="subscribe" href="javascript:void(0)"><i class="icon ion-ios-checkmark-outline"></i></a><a class="flag" href="javascript:void(0)"><i class="icon ion-android-cancel"></i></a></span></li>
-                                    <li class="thread"><span class="time">Apr 18</span><span class="title"><strong>name of the charity stand</strong></span><span class="icon"> <a class="subscribe" href="javascript:void(0)"><i class="icon ion-ios-checkmark-outline"></i></a><a class="flag" href="javascript:void(0)"><i class="icon ion-android-cancel"></i></a></span></li>
-                                    <li class="thread"><span class="time">Apr 17</span><span class="title"><strong>name of the charity stand</strong></span><span class="icon"> <a class="subscribe" href="javascript:void(0)"><i class="icon ion-ios-checkmark-outline"></i></a><a class="flag" href="javascript:void(0)"><i class="icon ion-android-cancel"></i></a></span></li>
-                                    <li class="thread"><span class="time">Apr 19</span><span class="title"><strong>name of the charity stand</strong></span><span class="icon"> <a class="subscribe" href="javascript:void(0)"><i class="icon ion-ios-checkmark-outline"></i></a><a class="flag" href="javascript:void(0)"><i class="icon ion-android-cancel"></i></a></span></li>
-                                    <li class="thread"><span class="time">Apr 17</span><span class="title"><strong>name of the charity stand</strong></span><span class="icon"> <a class="subscribe" href="javascript:void(0)"><i class="icon ion-ios-checkmark-outline"></i></a><a class="flag" href="javascript:void(0)"><i class="icon ion-android-cancel"></i></a></span></li>
-                                    <li class="thread"><span class="time">Apr 15</span><span class="title"><strong>name of the charity stand</strong></span><span class="icon"> <a class="subscribe" href="javascript:void(0)"><i class="icon ion-ios-checkmark-outline"></i></a><a class="flag" href="javascript:void(0)"><i class="icon ion-android-cancel"></i></a></span></li>
-                                    <li class="thread"><span class="time">Mar 23</span><span class="title"><strong>name of the charity stand</strong></span><span class="icon"> <a class="subscribe" href="javascript:void(0)"><i class="icon ion-ios-checkmark-outline"></i></a><a class="flag" href="javascript:void(0)"><i class="icon ion-android-cancel"></i></a></span></li>
-                                    <li class="thread"><span class="time">Mar 21</span><span class="title"><strong>name of the charity stand</strong></span><span class="icon"> <a class="subscribe" href="javascript:void(0)"><i class="icon ion-ios-checkmark-outline"></i></a><a class="flag" href="javascript:void(0)"><i class="icon ion-android-cancel"></i></a></span></li>
-                                    <li class="thread"><span class="time">Mar 2</span><span class="title"><strong>name of the charity stand</strong></span><span class="icon"> <a class="subscribe" href="javascript:void(0)"><i class="icon ion-ios-checkmark-outline"></i></a><a class="flag" href="javascript:void(0)"><i class="icon ion-android-cancel"></i></a></span></li>
->>>>>>> origin/addingAllPages
                                 </ul>
                             </div>
                             <div class="tab-pane" role="tabpanel" id="tab-2"></div>
@@ -94,7 +76,6 @@
         <h1 style="text-align: center;color: #a7871a;">Active charity stand</h1>
         <div class="container">
             <div class="row product-list dev">
-<<<<<<< HEAD
                 <%for(var i = 0; i < charityStandsArray.length; i++) {%>
                     <%if(charityStandsArray[i].status == "Active") {%>
                         <div class="col-sm-6 col-md-4 product-item animation-element">
@@ -121,72 +102,6 @@
                         </div>
                     <%}%>
                 <%}%>
-=======
-                <div class="col-sm-6 col-md-4 product-item animation-element slide-top-left">
-                    <div class="product-container">
-                        <div class="row">
-                            <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <h2><a id="standType" href="#" name="standType">Water</a></h2>
-                            </div>
-                            <div class="col-4"><a id="location" class="small-text" href="#" name="location">Location</a></div>
-                        </div>
-                        <div class="product-rating"></div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p id="standInfo" class="product-description" neme="standInfo">info.</p>
-                                <div class="row">
-                                    <div class="col-6" style="text-align: center;"><a class="btn btn-light" role="button" href="EditCharityStand.html">Edit</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 product-item animation-element slide-rotate-clockwise">
-                    <div class="product-container">
-                        <div class="row">
-                            <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <h2><a id="standType" href="#" name="standType">Clothes</a></h2>
-                            </div>
-                            <div class="col-4"><a id="location" class="small-text" href="#" name="location">Location</a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p id="standInfo" class="product-description" name="standInfo">info.</p>
-                                <div class="row">
-                                    <div class="col-6" style="text-align: center;"><a class="btn btn-light" role="button" href="EditCharityStand.html">Edit</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 product-item animation-element slide-top-right">
-                    <div class="product-container">
-                        <div class="row">
-                            <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <h2><a id="standType" href="#" name="standType">Furniture</a></h2>
-                            </div>
-                            <div class="col-4"><a id="location" class="small-text" href="#" name="location">Location</a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p id="standInfo" class="product-description" name="standInfo">info.</p>
-                                <div class="row">
-                                    <div class="col-6" style="text-align: center;"><a class="btn btn-light" role="button" href="EditCharityStand.html">Edit</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
->>>>>>> origin/addingAllPages
             </div>
         </div>
     </section>
@@ -194,19 +109,11 @@
         <div class="container"><a class="navbar-brand" href="#page-top" style="color: rgb(167,135,26);padding: 1px;margin: -37px;">ATAA'</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive" style="width: auto;height: auto;margin: auto;padding: auto;">
                 <ul class="navbar-nav ml-auto text-uppercase">
-<<<<<<< HEAD
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#services">manage accounts</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#portfolio">manage req\donations</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#charityStand">manage charity stands</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#team">display statics</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index">Sign out</a></li>
-=======
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#services">manage accounts</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#portfolio">manage req\donations</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#charityStand">manage charity stands</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#team">display statics</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Sign out</a></li>
->>>>>>> origin/addingAllPages
                 </ul>
             </div>
         </div>
