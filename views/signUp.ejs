@@ -57,9 +57,9 @@
                                 <form>
                                     <div class="form-group"><label class="text-secondary">Email</label><input class="form-control" type="text" id="email-2" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" inputmode="email" name="email"></div>
                                     <div class="form-group"><label class="text-secondary">Name </label><input class="form-control" type="text" id="name-2" required="" inputmode="email" name="name"></div>
-                                    <div class="form-group"><label class="text-secondary">Phone Number</label><input class="form-control" type="text" id="phoneNumber-2" required="" inputmode="email" minlength="10" maxlength="10" pattern="0+5+[0-9]+[0-9]$" name="phoneNumber"></div>
+                                    <div class="form-group"><label class="text-secondary">Phone Number</label><input class="form-control" type="text" id="phoneNumber-2" required="" inputmode="email" minlength="10" maxlength="10" pattern="0+5+[0-9]+[0-9]$" name="phone"></div>
                                     <div class="form-group"><label class="text-secondary">Password</label><input class="form-control" type="password" id="password-3" required="" minlength="6" maxlength="20" name="password"></div>
-                                    <div class="form-group"><label class="text-secondary">Confirm Password</label><input class="form-control" type="password" id="password-4" required="" minlength="6" maxlength="20" name="password1"><a class="btn btn-info mt-2" role="button" id="sginup-2" href="login.html" name="sginup">Sign up</a></div>
+                                    <div class="form-group"><label class="text-secondary">Confirm Password</label><input class="form-control" type="password" id="password-4" required="" minlength="6" maxlength="20" name="password1"><a class="btn btn-info mt-2" role="button" id="sginup-2" href="login" name="sginup">Sign up</a></div>
                                 </form>
                             </div>
                             <div class="tab-pane" role="tabpanel" id="tab-6">
@@ -67,17 +67,21 @@
                                     <div class="form-group"><label class="text-secondary">Email</label><input class="form-control" type="text" id="email-3" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" inputmode="email" name="email"></div>
                                     <div class="form-group"><label class="text-secondary">Name </label><input class="form-control" type="text" id="name-3" required="" inputmode="email" name="name"></div>
                                     <div class="form-group"><label class="text-secondary">Chatiry</label><select class="form-control" id="charity-1" name="charity">
-                                            <option value="12" selected="">Charity1</option>
-                                            <option value="13">Charity2</option>
-                                        </select></div>
-                                    <div class="form-group"><label class="text-secondary">Phone Number</label><input class="form-control" type="text" id="phoneNumber-3" required="" inputmode="email" minlength="10" maxlength="10" pattern="0+5+[0-9]+[0-9]$" name="phoneNumber"></div>
+                                        <% for (var i = 0; i < charitiesArray.length; i++){%>    
+                                        <option value="<%=charitiesArray[i].id%>"><%=charitiesArray[i].name%></option>
+                                        <%}%>
+                                    
+                                    </select>
+                                    </div>
+
+                                    <div class="form-group"><label class="text-secondary">Phone Number</label><input class="form-control" type="text" id="phoneNumber-3" required="" inputmode="email" minlength="10" maxlength="10" pattern="0+5+[0-9]+[0-9]$" name="phone"></div>
                                     <div class="form-group"><label class="text-secondary">Password</label><input class="form-control" type="password" id="password-5" required="" minlength="6" maxlength="20" name="password"></div>
-                                    <div class="form-group"><label class="text-secondary">Confirm Password</label><input class="form-control" type="password" id="password-6" required="" minlength="6" maxlength="20" name="password1"><a class="btn btn-info mt-2" role="button" id="sginup-3" href="login.html" name="sginup">Sign up</a></div>
+                                    <div class="form-group"><label class="text-secondary">Confirm Password</label><input class="form-control" type="password" id="password-6" required="" minlength="6" maxlength="20" name="password1"><a class="btn btn-info mt-2" role="button" id="sginup-3" href="login" name="sginup">Sign up</a></div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <p class="mt-3 mb-0"><a class="text-info small" href="login.html" style="border-color: #a7871a;">Has an account.</a></p>
+                    <p class="mt-3 mb-0"><a class="text-info small" href="login" style="border-color: #a7871a;">Has an account.</a></p>
                 </div>
             </div>
             <div class="col-lg-6 d-flex align-items-end" id="bg-block" style="background: url(&quot;assets/img/header-bg.jpg&quot;) center center / cover;">
@@ -89,7 +93,7 @@
         <div class="container"><a class="navbar-brand" href="#page-top" style="color: rgb(167,135,26);">ATAA'</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login.html">LOGIN</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login">LOGIN</a></li>
                 </ul>
             </div>
         </div>

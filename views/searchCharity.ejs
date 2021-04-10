@@ -68,19 +68,22 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><a id="charityName" href="editCharityInformation.html" style="color: rgb(0,0,0);" name="charityName">AA</a></td>
+                                        <td><a id="charityName" href="/editCharityInformation" style="color: rgb(0,0,0);" name="charityName">AA</a></td>
                                         <td id="charityType" name="charityType">Food</td>
                                         <td id="charityLocation" name="charityLocation">Dahran</td>
                                     </tr>
+                                    <% for(var i=0; i < charitiesArray.length; i++){%>   
+                                    <tr> 
+                                        <td><a href="/editCharityInformation/<%=charitiesArray[i].id%>"> <%= charitiesArray[i].name %></a></td>
+                                        <td><%= charitiesArray[i].specialty %></td>
+                                        <td><%= charitiesArray[i].location %></td>
+                                    </tr>
+                                    <% } %>
+                                     
                                     <tr>
                                         <td>Charity2</td>
                                         <td>Clothes</td>
                                         <td>Riyadh</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Charity3</td>
-                                        <td>Frniture</td>
-                                        <td>Makkah</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -186,11 +189,11 @@
         <div class="container"><a class="navbar-brand" href="#page-top" style="color: rgb(167,135,26);padding: 1px;margin: -37px;">ATAA'</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive" style="width: auto;height: auto;margin: auto;padding: auto;">
                 <ul class="navbar-nav ml-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#services">manage accounts</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#portfolio">manage req\donations</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#charityStand">manage charity stands</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#team">display statics</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Sign out</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#services">manage accounts</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#portfolio">manage req\donations</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#charityStand">manage charity stands</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#team">display statics</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index">Sign out</a></li>
                 </ul>
             </div>
         </div>

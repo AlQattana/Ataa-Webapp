@@ -46,70 +46,30 @@
         <h1 style="text-align: center;color: #a7871a;">Periodic Donation</h1>
         <div class="container">
             <div class="row product-list dev">
-                <div class="col-sm-6 col-md-4 product-item animation-element slide-top-left">
-                    <div class="product-container">
-                        <div class="row">
-                            <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <h2><a href="#" name="donationName">Periodic Donate</a></h2>
+                <% for(var i = 0; i < periodicDonationsArray.length; i++){%>
+                    <div class="col-sm-6 col-md-4 product-item animation-element">
+                        <div class="product-container">
+                            <div class="row">
+                                <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
                             </div>
-                            <div class="col-4"><a class="small-text" href="#" name="location">Location</a></div>
-                        </div>
-                        <div class="product-rating"></div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="product-description" name="info">info.</p>
-                                <div class="row text-center">
-                                    <div class="col-6"><button class="btn btn-light" type="submit" name="pause">Pause</button></div><button class="btn btn-light" type="submit" style="margin-left: 45px;" name="terminate"><strong>terminate</strong></button>
+                            <div class="row">
+                                <div class="col-8">
+                                    <h2><%=periodicDonationsArray[i].type%></h2>
+                                </div>
+                                <div class="col-4"><a class="small-text" href="#" name="location"><%=periodicDonationsArray[i].location%></a></div>
+                            </div>
+                            <div class="product-rating"></div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="product-description" name="info">Status: <%=periodicDonationsArray[i].status%></p>
+                                    <div class="row text-center">
+                                        <div class="col-6"><a class="btn btn-light" href="/periodicDonation/pause/<%=periodicDonationsArray[i].id%>" name="pause">Pause</a></div><a class="btn btn-light" type="submit" style="margin-left: 45px;" href="/periodicDonation/terminate/<%=periodicDonationsArray[i].id%>" name="terminate"><strong>terminate</strong></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-md-4 product-item animation-element slide-rotate-clockwise">
-                    <div class="product-container">
-                        <div class="row">
-                            <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <h2><a href="#" name="donationName"><strong>Periodic Donate</strong><br></a></h2>
-                            </div>
-                            <div class="col-4"><a class="small-text" href="#" name="location">Location</a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="product-description" name="info">info.</p>
-                                <div class="row">
-                                    <div class="col-6" style="text-align: center;"><button class="btn btn-light product-description" type="submit" name="pause"><strong>Pause</strong></button></div><button class="btn btn-light" type="submit" style="margin-left: 45px;" name="terminate"><strong>terminate</strong></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 product-item animation-element slide-top-right">
-                    <div class="product-container">
-                        <div class="row">
-                            <div class="col-md-12"><a class="product-image" href="#"><img src="assets/img/team/y9DpT.jpg"></a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <h2><a href="#" name="donationName">Periodic Donate</a></h2>
-                            </div>
-                            <div class="col-4"><a class="small-text" href="#" name="location">Location</a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="product-description" name="info">info.</p>
-                                <div class="row">
-                                    <div class="col-6" style="text-align: center;"><button class="btn btn-light product-description" type="submit" name="pause"><strong>Pause</strong></button></div><button class="btn btn-light" type="submit" style="margin-left: 45px;" name="terminate"><strong>terminate</strong></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <%}%>
             </div>
         </div>
     </section>
@@ -117,11 +77,11 @@
         <div class="container"><a class="navbar-brand" href="#page-top" style="color: rgb(167,135,26);padding: 1px;margin: -37px;">ATAA'</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive" style="width: auto;height: auto;margin: auto;padding: auto;">
                 <ul class="navbar-nav ml-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#services">manage accounts</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#portfolio">manage req\donations</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#charityStand">manage charity stands</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#team">display statics</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Sign out</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#services">manage accounts</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#portfolio">manage req\donations</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#charityStand">manage charity stands</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#team">display statics</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index">Sign out</a></li>
                 </ul>
             </div>
         </div>

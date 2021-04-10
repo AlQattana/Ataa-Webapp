@@ -46,11 +46,11 @@
         <div class="container"><a class="navbar-brand" href="#page-top" style="color: rgb(167,135,26);padding: 1px;margin: -37px;">ATAA'</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive" style="width: auto;height: auto;margin: auto;padding: auto;">
                 <ul class="navbar-nav ml-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#services">manage accounts</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#portfolio">manage req\donations</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#charityStand">manage charity stands</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#team">display statics</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Sign out</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#services">manage accounts</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#portfolio">manage req\donations</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#charityStand">manage charity stands</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#team">display statics</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index">Sign out</a></li>
                 </ul>
             </div>
         </div>
@@ -73,20 +73,58 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="text-center" id="type" name="type">Request</td>
-                            <td class="text-center" id="useName" name="useName">Ali</td>
-                            <td class="text-center" id="date" name="useName">15/10/2020</td>
-                            <td class="text-center">Riyadh</td>
-                            <td class="text-center" id="status" style="color: #009e60;" name="status">Fulfilled</td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">Donation</td>
-                            <td class="text-center">Hamad</td>
-                            <td class="text-center">14/11/2020</td>
-                            <td class="text-center">Riyadh<br></td>
-                            <td class="text-center" style="color: #e5053a;">Unfulfilled</td>
-                        </tr>
+                        <tbody>
+                            <% for(var i = 0; i < donationRequestsArray.length; i++){%>
+                                <tr>
+                                    <td class="text-center" id="type" name="type">Request</td>
+                                    <td class="text-center" id="userName" name="userName">
+                                        <% var found = false;%>
+                                        <% for(var j = 0; j < usersArray.length; j++){ %>
+                                            <% if (usersArray[j].uid == donationRequestsArray[i].uid){%>
+                                                <%= usersArray[j].name %>
+                                                <% found = true;%>
+                                            <%}%>                                          
+                                        <%}%>
+                                        <%if(found == false){%>
+                                            <%= "NONE" %>
+                                        <%}%>  
+                                    </td>
+                                    <td class="text-center" id="date" name="date">15/8/2020</td>
+                                    <td class="text-center">Riyadh</td>
+                                    <% if (donationRequestsArray[i].status != "canceled"){%>
+                                        <td class="text-center" id="status" style="color: #009e60;" name="status"><%=donationRequestsArray[i].status%></td>
+                                    <%} else {%>
+                                        <td class="text-center" id="status" style="color: #f10e0e;" name="status"><%=donationRequestsArray[i].status%></td>
+                                    <%}%>
+                                </tr>
+                            <%}%>
+    
+    
+                            <% for(var i = 0; i < donationsArray.length; i++){%>
+                                <tr>
+                                    <td class="text-center" id="type" name="type">Donation</td>
+                                    <td class="text-center" id="userName" name="userName">
+                                        <% var found = false;%>
+                                        <% for(var j = 0; j < usersArray.length; j++){ %>
+                                            <% if (usersArray[j].uid == donationsArray[i].user){%>
+                                                <%= usersArray[j].name %>
+                                                <% found = true;%>
+                                            <%}%>                                          
+                                        <%}%>
+                                        <%if(found == false){%>
+                                            <%= "NONE" %>
+                                        <%}%>  
+                                    </td>
+                                    <td class="text-center" id="date" name="date">15/8/2020</td>
+                                    <td class="text-center">Riyadh</td>
+                                    <% if (donationsArray[i].status != "canceled"){%>
+                                        <td class="text-center" id="status" style="color: #009e60;" name="status"><%=donationsArray[i].status%></td>
+                                    <%} else {%>
+                                        <td class="text-center" id="status" style="color: #f10e0e;" name="status"><%=donationsArray[i].status%></td>
+                                    <%}%>
+                                </tr>
+                            <%}%>
+                        </tbody>
                     </tbody>
                 </table>
             </div>
