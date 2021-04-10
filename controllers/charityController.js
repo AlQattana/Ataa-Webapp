@@ -6,6 +6,7 @@ const Donation = require('../modules/donation')
 const DonationRequests = require('../modules/donationsRequests')
 const CharityStand = require('../modules/charityStand');
 const PeriodicDonation = require('../modules/periodicDonation');
+const CharityRepresentative = require('../modules/charityRepresentative');
 
 // This function returns an array of Charities from the database
 module.exports.getAllCharities = async function(){
@@ -24,6 +25,23 @@ module.exports.getAllCharities = async function(){
     return charitiesArray;
   });
   return charitiesArray;
+};
+
+module.exports.getAllCharityRepresentatives = async function(){
+  var charityRepresentativesArray = await firestore.collection("charity_representatives").get().then((querySnapshot) => {
+    var charityRepresentativesArray = [];
+    querySnapshot.forEach((charityRepresentativeDoc) => {
+        const charityRepresentative = new CharityRepresentative(
+          charityRepresentativeDoc.id,
+          charityRepresentativeDoc.data().charity_id,
+          charityRepresentativeDoc.data().status,
+          charityRepresentativeDoc.data().uid
+        );
+        charityRepresentativesArray.push(charityRepresentative);
+    });
+    return charityRepresentativesArray;
+  });
+  return charityRepresentativesArray;
 };
 
 module.exports.getAllCharityStands = async function(){
@@ -152,4 +170,34 @@ module.exports.markDonationAsCollected = async function(cid){
 
 module.exports.markDonationRequestAsFulfilled = async function(cid){
   await firestore.collection("donation_requests").doc(cid).update({status: "fulfilled"});
+};
+
+module.exports.acceptDonationRequest = async function(cid){
+  await firestore.collection("donation_requests").doc(cid).update({status: "active"});
+};
+
+module.exports.rejectDonationRequest = async function(cid){
+  await firestore.collection("donation_requests").doc(cid).update({status: "rejected"});
+};
+
+module.exports.acceptCharityRepresentative = async function(cid){
+  await firestore.collection("charity_representatives").doc(cid).update({status: "accepted"});
+};
+
+module.exports.rejectCharityRepresentative = async function(cid){
+  await firestore.collection("charity_representatives").doc(cid).update({status: "rejected"});
+};
+
+module.exports.getDonationRequestById = async function(id){
+  var dr =  await firestore.collection("donation_requests").doc(id).get();
+  const donationRequest = new DonationRequests(
+    dr.id,
+    dr.data().anonymous,
+    dr.data().location,   
+    dr.data().status,
+    dr.data().timeStamp,
+    dr.data().type,
+    dr.data().uid,
+  );
+  return donationRequest;
 };

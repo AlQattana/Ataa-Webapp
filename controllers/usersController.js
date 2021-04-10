@@ -75,3 +75,31 @@ module.exports.unBanUser = async function(uid){
   await firestore.collection("users").doc(uid).update({status: "Active"});
   //await sleep(1000);
 };
+
+module.exports.getUserById = async function(id){
+  //console.log(id);
+  
+  const usersRef = firestore.collection('users');
+  const snapshot = await usersRef.where('uid', '==', id).get();
+  
+  if (snapshot.empty) {
+    console.log('No matching documents.');
+    return;
+  }  
+  
+  var u;
+
+  snapshot.forEach(userDoc => {
+    const user = new User(
+      userDoc.id,
+      //userDoc.data().location,
+      (userDoc.data().first_name + ' ' + userDoc.data().last_name),
+      userDoc.data().type,
+      userDoc.data().status,
+      userDoc.data().uid
+    );
+    u = user;
+  });
+
+  return u;
+};
