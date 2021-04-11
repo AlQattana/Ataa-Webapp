@@ -50,7 +50,7 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">manage req\donations</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#charityStand">manage charity stands</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">display statics</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Sign out</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index">Sign out</a></li>
                 </ul>
             </div>
         </div>
@@ -72,14 +72,14 @@
                 </div>
             </div>
             <div class="row text-center">
-                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-check-circle fa-stack-1x fa-inverse"></i></span><a class="section-heading" style="font-size: 24px;color: #1c664a;" href="confirmCharity.html"><br><strong>Confirm Charity Accounts</strong><br></a>
-                    <p class="text-muted">The&nbsp;charity&nbsp;that&nbsp;want&nbsp;to&nbsp;register&nbsp;in&nbsp;Ataa'&nbsp; system&nbsp;and&nbsp;work&nbsp;with&nbsp;it.<br></p>
+                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-check-circle fa-stack-1x fa-inverse"></i></span><a class="section-heading" style="font-size: 24px;color: #1c664a;" href="confirmCharity"><br><strong>Confirm Charity Accounts</strong><br></a>
+                    <p class="text-muted">Verify&nbsp; the charity that want to register in Ataa' system and work with it.&nbsp;&nbsp;</p>
                 </div>
-                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-search fa-stack-1x fa-inverse"></i></span><a class="section-heading" style="font-size: 24px;color: #1c664a;" href="searchCharity.html"><br><strong>Search Charity</strong><br></a>
-                    <p class="text-muted">Searching&nbsp;for&nbsp;specific&nbsp;charity&nbsp;in&nbsp;Ataa'&nbsp; system.<br></p>
+                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-search fa-stack-1x fa-inverse"></i></span><a class="section-heading" style="font-size: 24px;color: #1c664a;" href="searchCharity"><br><strong>Search Charity</strong><br></a>
+                    <p class="text-muted">searching for specific charity in Ataa' system.</p>
                 </div>
-                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-ban fa-stack-1x fa-inverse"></i></span><a class="section-heading" style="font-size: 24px;color: #1c664a;" href="banAccount.html"><br><strong>Ban Accounts</strong><br></a>
-                    <p class="text-muted">Ban&nbsp;users&nbsp;Account&nbsp;that&nbsp;using&nbsp;Ataa'&nbsp; system&nbsp;against&nbsp;the&nbsp;system&nbsp;terms.<br></p>
+                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-ban fa-stack-1x fa-inverse"></i></span><a class="section-heading" style="font-size: 24px;color: #1c664a;" href="banAccount"><br><strong>Ban Accounts</strong><br></a>
+                    <p class="text-muted">Ban users Account that using Ataa' system against the system terms.</p>
                 </div>
             </div>
         </div>
@@ -90,19 +90,19 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="team-member">
-                        <h1 style="font-size: 120px;color: #a7871a;">25</h1>
+                        <h1 style="font-size: 120px;color: #a7871a;"><%=charitiesCount%></h1>
                         <h4 class="text-uppercase">Number of&nbsp;<strong>charities</strong></h4>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="team-member">
-                        <h1 style="font-size: 120px;color: #a7871a;">367</h1>
+                        <h1 style="font-size: 120px;color: #a7871a;"><%=usersCount%></h1>
                         <h4 class="text-uppercase">Number of users</h4>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="team-member">
-                        <h1 style="font-size: 120px;color: #a7871a;">198</h1>
+                        <h1 style="font-size: 120px;color: #a7871a;"><%=donationsCount%></h1>
                         <h4 class="text-uppercase">Number of&nbsp;<strong>donation</strong></h4>
                     </div>
                 </div>
@@ -117,39 +117,39 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" data-toggle="modal" href="historyDonationRequest.html">
+                <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" data-toggle="modal" href="historyDonationRequest">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
                         </div><img class="img-fluid" src="assets/img/portfolio/photo_2021-03-15_08-33-48.jpg" style="height: 300px;">
                     </a>
-                    <div class="portfolio-caption"><a class="section-heading" style="font-size: 24px;color: #1c664a;" href="historyDonationRequest.html"><strong>History for Donation/Request</strong></a>
+                    <div class="portfolio-caption"><a class="section-heading" style="font-size: 24px;color: #1c664a;" href="historyDonationRequest"><strong>History for Donation/Request</strong></a>
                         <p class="text-muted">Illustration</p>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" data-toggle="modal" href="searchDonationRequest.html">
+                <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" data-toggle="modal" href="searchDonationRequest">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
                         </div><img class="img-fluid" src="assets/img/portfolio/photo_2021-03-15_08-34-02.jpg" style="height: 300px;">
                     </a>
-                    <div class="portfolio-caption"><a class="section-heading" style="font-size: 24px;color: #1c664a;" href="searchDonationRequest.html"><strong>Search for Donation/Request</strong></a>
+                    <div class="portfolio-caption"><a class="section-heading" style="font-size: 24px;color: #1c664a;" href="searchDonationRequest"><strong>Search for Donation/Request</strong></a>
                         <p class="text-muted">Graphic Design</p>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" data-toggle="modal" href="donation.html">
+                <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" data-toggle="modal" href="donation">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
                         </div><img class="img-fluid" src="assets/img/portfolio/photo_2021-03-15_08-33-59.jpg" style="height: 300px;">
                     </a>
-                    <div class="portfolio-caption"><a class="section-heading" style="font-size: 24px;color: #1c664a;" href="donation.html"><strong>Donation</strong></a>
+                    <div class="portfolio-caption"><a class="section-heading" style="font-size: 24px;color: #1c664a;" href="donation"><strong>Donation</strong></a>
                         <p class="text-muted">Identity</p>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" data-toggle="modal" href="periodicDonation.html">
+                <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" data-toggle="modal" href="periodicdonation">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
                         </div><img class="img-fluid" src="assets/img/portfolio/photo_2021-03-15_08-34-05.jpg" style="height: 300px;">
                     </a>
-                    <div class="portfolio-caption"><a class="section-heading" style="font-size: 24px;color: #1c664a;" href="periodicDonation.html"><strong>Periodic Donation</strong></a>
+                    <div class="portfolio-caption"><a class="section-heading" style="font-size: 24px;color: #1c664a;" href="periodicdonation"><strong>Periodic Donation</strong></a>
                         <p class="text-muted">Branding</p>
                     </div>
                 </div>
@@ -157,7 +157,7 @@
         </div>
     </section>
     <section id="charityStand" class="bg-light">
-        <div class="container"><a class="d-xl-flex justify-content-xl-center" href="charityStand.html" style="color: #1c664a;font-size: 40px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;"><strong>MANAGE CHARITY STAND</strong></a>
+        <div class="container"><a class="d-xl-flex justify-content-xl-center" href="charityStand" style="color: #1c664a;font-size: 40px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;"><strong>MANAGE CHARITY STAND</strong></a>
             <h3 class="section-subheading text-muted" style="text-align: center;">Charity stand</h3>
             <div class="row" style="margin: -18px;">
                 <div class="col-sm-4">
@@ -344,6 +344,8 @@
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="assets/js/agency.js"></script>

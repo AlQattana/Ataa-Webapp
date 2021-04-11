@@ -46,11 +46,11 @@
         <div class="container"><a class="navbar-brand" href="#page-top" style="color: rgb(167,135,26);padding: 1px;margin: -37px;">ATAA'</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive" style="width: auto;height: auto;margin: auto;padding: auto;">
                 <ul class="navbar-nav ml-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#services">manage accounts</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#portfolio">manage req\donations</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#charityStand">manage charity stands</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage.html/#team">display statics</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Sign out</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage">manage accounts</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#portfolio">manage req\donations</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#charityStand">manage charity stands</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#team">display statics</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index">Sign out</a></li>
                 </ul>
             </div>
         </div>
@@ -66,27 +66,26 @@
                     <thead class="bill-header cs">
                         <tr>
                             <th id="trs-hd" class="col-lg-1" style="background: #a7871a;width: 654px;">NAME</th>
-                            <th class="text-uppercase col-lg-2" id="trs-hd" style="background: #a7871a;width: 766px;">Location</th>
+                            <th class="text-uppercase col-lg-2" id="trs-hd" style="background: #a7871a;width: 766px;">Type</th>
                             <th class="text-uppercase col-lg-2" id="trs-hd" style="background: #a7871a;width: 684px;">status</th>
                             <th class="text-uppercase col-lg-2" id="trs-hd" style="background: #a7871a;width: 572px;">Member Since</th>
                             <th id="trs-hd" class="col-lg-2" style="background: #a7871a;width: 275px;">Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <% for(var i = 0; i < usersArray.length; i++){ %>
                         <tr>
-                            <td class="text-center" id="userName" name="userName">Ali</td>
-                            <td class="text-center" id="userLocation" name="userLocation">Riyadh</td>
-                            <td class="text-center" id="userStatus" name="userStatus">Active</td>
+                            <td class="text-center" id="userName" name="userName"><%= usersArray[i].name%></td>
+                            <td class="text-center" id="userLocation" name="userLocation"><%= usersArray[i].type %></td>
+                            <td class="text-center" id="userStatus" name="userStatus"><%= usersArray[i].status %></td>
                             <td class="text-center" id="userDate" name="userDate">2021</td>
-                            <td class="text-center"><button class="btn btn-danger text-center" style="margin-left: 5px;" type="submit">Ban</button></td>
+                            <% if (usersArray[i].status == "Active") {%>
+                                <td class="text-center"><a class="btn btn-danger text-center" style="margin-left: 5px;" href='/banAccount/ban/<%=usersArray[i].id%>'">Ban</a></td>    
+                            <% } else {%>
+                                <td class="text-center"><a class="btn btn-danger text-center" style="margin-left: 5px;background: #1c664a;border-color: #1c664a;" href='/banAccount/unban/<%=usersArray[i].id%>'">Unban</a></td>
+                            <%}%>
                         </tr>
-                        <tr>
-                            <td class="text-center">Ahamd</td>
-                            <td class="text-center">Makkah</td>
-                            <td class="text-center">blocked</td>
-                            <td class="text-center">2021</td>
-                            <td class="text-center"><button class="btn btn-danger text-center" style="margin-left: 5px;background: #1c664a;border-color: #1c664a;" type="submit">Unban</button></td>
-                        </tr>
+                        <%}%>
                     </tbody>
                 </table>
             </div>
@@ -94,6 +93,8 @@
     </section>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="assets/js/agency.js"></script>
