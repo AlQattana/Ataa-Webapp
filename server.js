@@ -3,7 +3,7 @@ const express = require('express');
 const logger = require('morgan');
 const cors = require('cors');
 const cookieParser = require("cookie-parser");
-//const csrf = require("csurf");
+const session = require('express-session');
 const config = require('./config');
 const admin = require('./admin');
 
@@ -55,11 +55,11 @@ app.use(cookieParser());
 // for logging everything in the terminal
 app.use(logger('dev'))
 
-app.all("*", (req, res, next) => {
-    if(!res.cookie)
-        res.cookie("UID", "Undefined");
-    next()
-});
+app.use(session({
+    secret: 'atta_app$#1765$%',
+    resave: true,
+    saveUninitialized: true
+}))
 
 // Using routes
 app.use('/signUp', signUp);

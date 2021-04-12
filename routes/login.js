@@ -6,7 +6,8 @@ const cookie = require('cookie-parser');
 
 // Home page route.
 router.get('/', (req, res) => {
-    res.render('login')
+    if(!req.session)
+      res.render('login')
 })
 
 // About page route.
@@ -15,7 +16,9 @@ router.post('/', async (req, res) => {
   var password = req.body.password;
   
   var user = await loginController.signIn(email, password);
-  res.cookie("UID", user.uid);
+  
+  if(user != 0 | user == undefined){}
+
 })
 
 module.exports = router;
