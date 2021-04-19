@@ -65,25 +65,44 @@
                 <table class="table table-bordered table-hover">
                     <thead class="bill-header cs">
                         <tr>
-                            <th id="trs-hd" class="col-lg-1" style="background: #a7871a;width: 654px;">NAME</th>
-                            <th class="text-uppercase col-lg-2" id="trs-hd" style="background: #a7871a;width: 766px;">Type</th>
-                            <th class="text-uppercase col-lg-2" id="trs-hd" style="background: #a7871a;width: 684px;">status</th>
-                            <th class="text-uppercase col-lg-2" id="trs-hd" style="background: #a7871a;width: 572px;">Member Since</th>
+                            <th id="trs-hd" class="col-lg-1" style="background: #a7871a;width: 654px;">Reported user</th>
+                            <th class="text-uppercase col-lg-2" id="trs-hd" style="background: #a7871a;width: 766px;">Reported By</th>
+                            <th class="text-uppercase col-lg-2" id="trs-hd" style="background: #a7871a;width: 684px;">Description</th>
                             <th id="trs-hd" class="col-lg-2" style="background: #a7871a;width: 275px;">Action</th>
                         </tr>
                     </thead>
+                    
                     <tbody>
-                        <% for(var i = 0; i < usersArray.length; i++){ %>
+                        <% reportsArray[0].uid %>
+                        <% for(var i = 0; i < reportsArray.length; i++){ %>
                         <tr>
-                            <td class="text-center" id="userName" name="userName"><%= usersArray[i].name%></td>
-                            <td class="text-center" id="userLocation" name="userLocation"><%= usersArray[i].type %></td>
-                            <td class="text-center" id="userStatus" name="userStatus"><%= usersArray[i].status %></td>
-                            <td class="text-center" id="userDate" name="userDate">2021</td>
-                            <% if (usersArray[i].status == "Active") {%>
-                                <td class="text-center"><a class="btn btn-danger text-center" style="margin-left: 5px;" href='/banAccount/ban/<%=usersArray[i].id%>'">Ban</a></td>    
-                            <% } else {%>
-                                <td class="text-center"><a class="btn btn-danger text-center" style="margin-left: 5px;background: #1c664a;border-color: #1c664a;" href='/banAccount/unban/<%=usersArray[i].id%>'">Unban</a></td>
-                            <%}%>
+                            <% for(var j = 0; j < usersArray.length; j++){ %>
+                                <% if (reportsArray[i].uid == usersArray[j].uid) {%>
+                                    <td class="text-center" id="userName" name="userName"><%= usersArray[j].name%></td>
+                                <% } %>
+                            <% } %>
+
+                            <% for(var k = 0; k < charitiesArray.length; k++){ %>
+                                <% if (reportsArray[i].cid == charitiesArray[k].id) {%>
+                                    <td class="text-center" id="userLocation" name="userLocation"><%= charitiesArray[k].name %></td>
+                                <% } %>
+                            <% } %>
+
+                            
+                            <td class="text-center" id="userStatus" name="userStatus"><%= reportsArray[i].description %></td>
+                            
+                            <% for(var j = 0; j < usersArray.length; j++){ %>
+                                <% if (reportsArray[i].uid == usersArray[j].uid) {%>
+                                    <% if (usersArray[j].status == "Active") {%>
+                                        <td class="text-center"><a class="btn btn-danger text-center" style="margin-left: 5px;" href='/banAccount/ban/<%=usersArray[j].id%>'">Ban</a></td>    
+                                    <% } else {%>
+                                        <td class="text-center"><a class="btn btn-danger text-center" style="margin-left: 5px;background: #1c664a;border-color: #1c664a;" href='/banAccount/unban/<%=usersArray[j].id%>'">Unban</a></td>
+                                    <%}%>
+                                    
+                                <% } %>
+                            <% } %>
+
+
                         </tr>
                         <%}%>
                     </tbody>

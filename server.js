@@ -31,7 +31,8 @@ const charityPendingRequestInfo = require('./routes/charity-pendingRequestInfo')
 const charitySearchRequest = require('./routes/charity-searchRequest');
 const CharityRepres = require('./routes/Charity-repres');
 const charityProfile = require('./routes/charity-profile');
-const { Session } = require('express-session');
+const charityReportAccount = require('./routes/charity-reportAccount');
+const charityNotify = require('./routes/charity-notify');
 
 // Defining the port
 var port = process.env.PORT
@@ -85,7 +86,8 @@ app.use('/charity-pendingRequestInfo', charityPendingRequestInfo);
 app.use('/charity-searchRequest', charitySearchRequest);
 app.use('/Charity-repres', CharityRepres);
 app.use('/charity-profile', charityProfile);
-
+app.use('/charity-reportAccount', charityReportAccount);
+app.use('/charity-notify', charityNotify);
 
 // Defining the routes
 app.get('/', (req, res) => {

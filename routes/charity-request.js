@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
 router.get('/fulfill/:id', async (req, res) => {
     console.log(req.params.id);
     await charityController.markDonationRequestAsFulfilled(req.params.id);
-    res.redirect('/charity-request');
+    res.redirect("/charity-notify")
 })
 
 module.exports = router;

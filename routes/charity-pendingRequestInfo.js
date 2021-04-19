@@ -7,11 +7,16 @@ router.get("/:id", async (req, res) => {
 
     
     var donationRequest = await charityController.getDonationRequestById(req.params.id)
-    //console.log(donationRequest.uid);
+    
     var user = await userController.getUserById(donationRequest.uid);
-    //console.log(user.name);
+    
 
     res.render("Charity-PendingRequestInfo", {donationRequest:donationRequest, user:user});
+});
+
+router.get("/:id/accept", async (req, res) => {
+    await charityController.acceptDonationRequest(req.params.id);
+    res.redirect('/Charity-PendingRequest');
 });
 
 module.exports = router;

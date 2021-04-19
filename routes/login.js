@@ -22,12 +22,13 @@ router.post('/', async (req, res) => {
   
   if(user == 0 || user == undefined){
     res.send('<h1>Error logging in<h1>');
+    
   } else {
     //console.log('1');
-    req.session.uid = '123';
+    res.render('Charity-Agent');
   }
 
-  res.render('login')
+  
   
 
 })

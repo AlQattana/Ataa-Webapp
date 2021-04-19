@@ -2,6 +2,7 @@ const admin = require('../admin');
 const firebase = require('firebase-admin');
 const firestore = firebase.firestore();
 const User = require('../modules/user');
+const Report = require('../modules/report')
 
 module.exports.addCharity = async function(charity){
   await admin.auth().createUser({
@@ -68,7 +69,7 @@ module.exports.getAllUsers = async function getAllUsers(){
 };
 
 module.exports.banUser = async function(uid){
-  await firestore.collection("users").doc(uid).update({status: "Inactive"});
+  await firestore.collection("users").doc(uid).update({status: "banned"});
 };
 
 module.exports.unBanUser = async function(uid){
@@ -103,3 +104,30 @@ module.exports.getUserById = async function(id){
 
   return u;
 };
+
+module.exports.addReport = async function(cid, uid, description){
+    await firestore.collection('Reports').add({
+      cid: cid,
+      description: description,
+      uid: uid
+    });
+};
+
+module.exports.getAllReports = async function(){
+  var reportsArray = await firestore.collection("Reports").get().then((querySnapshot) => {
+      var reportsArray = [];
+        querySnapshot.forEach((reportDoc) => {
+            const report = new Report(
+              reportDoc.id,
+              reportDoc.data().cid,
+              reportDoc.data().uid,
+              reportDoc.data().description
+            );
+            
+            reportsArray.push(report);
+        });
+      return reportsArray;
+    });
+  return reportsArray;
+};
+
