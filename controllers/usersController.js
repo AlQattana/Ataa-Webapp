@@ -78,7 +78,7 @@ module.exports.unBanUser = async function(uid){
 };
 
 module.exports.getUserById = async function(id){
-  //console.log(id);
+  var user;
   
   const usersRef = firestore.collection('users');
   const snapshot = await usersRef.where('uid', '==', id).get();
@@ -87,22 +87,19 @@ module.exports.getUserById = async function(id){
     console.log('No matching documents.');
     return;
   }  
-  
-  var u;
 
-  snapshot.forEach(userDoc => {
-    const user = new User(
-      userDoc.id,
-      //userDoc.data().location,
-      (userDoc.data().first_name + ' ' + userDoc.data().last_name),
-      userDoc.data().type,
-      userDoc.data().status,
-      userDoc.data().uid
+  snapshot.forEach((userDoc) => {
+    var userTemp = new User(
+        userDoc.id,
+        (userDoc.data().first_name + ' ' + userDoc.data().last_name),
+        userDoc.data().type,
+        userDoc.data().status,
+        userDoc.data().uid
     );
-    u = user;
+    user = userTemp;  
   });
 
-  return u;
+  return user;
 };
 
 module.exports.addReport = async function(cid, uid, description){

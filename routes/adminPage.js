@@ -5,6 +5,9 @@ const charitiesController = require("../controllers/charityController")
 
 // Home page route.
 router.get('/', async (req, res) => {
+    var status = "None";
+    status = req.session.type;
+    console.log(status);
     var usersArray = await usersController.getAllUsers();
     var charitiessArray = await charitiesController.getAllCharities();
     var donationsArray = await charitiesController.getAllDonations();
@@ -12,11 +15,6 @@ router.get('/', async (req, res) => {
     var charitiesCount = charitiessArray.length;
     var donationsCount = donationsArray.length;
     res.render('adminPage', {usersCount:usersCount, charitiesCount:charitiesCount, donationsCount:donationsCount});
-})
-
-// About page route.
-router.post('/', (req, res) => {
-
 })
 
 module.exports = router;

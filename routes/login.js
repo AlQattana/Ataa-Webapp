@@ -1,13 +1,12 @@
 var express = require('express');
 var router = express.Router();
 const loginController = require("../controllers/loginController");
+const usersController = require("../controllers/usersController");
 //const session = require('express-session');
 
 
 // Home page route.
 router.get('/', (req, res) => {
-  var uid = req.session.uid;
-  console.log(uid);
   res.render('login')
 })
 
@@ -18,19 +17,18 @@ router.post('/', async (req, res) => {
   var password = req.body.password;
   
   var user = await loginController.signIn(email, password);
-  //console.log(user.uid);
+
   
   if(user == 0 || user == undefined){
     res.send('<h1>Error logging in<h1>');
     
   } else {
-    //console.log('1');
-    res.render('Charity-Agent');
+    console.log(user.uid)
+    user = await usersController.getUserById(user.uid);
+    req.session.type = user.type;
+    console.log(req.session.type);
+    res.send('<h1>Loged in ...<h1>');
   }
-
-  
-  
-
 })
 
 module.exports = router;
