@@ -7,7 +7,8 @@ module.exports.signIn =  async function(email, password){
   let user = await firebase.auth().signInWithEmailAndPassword(email, password).then(({user}) => {
     return user;
   }).catch((err) => {
-    return 0;
+    console.log(err)
+    return undefined;
   })
   return user;
 }
