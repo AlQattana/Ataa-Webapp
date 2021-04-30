@@ -1,41 +1,22 @@
 var express = require('express');
 var router = express.Router();
-const userController = require('../controllers/usersController')
-const charityController = require('../controllers/charityController')
 
 // Home page route.
 router.get('/', async (req, res) => {
-  var charitiesArray = await charityController.getAllCharities();
-  res.render('signUp', {charitiesArray:charitiesArray});
+  res.render('signUp');
 })
 
 // About page route.
-router.post('/', (req, res) => {
-  
-  
-  
+router.post('/', async (req, res) => {
   var user = {
     email : req.body.email,
     name : req.body.name,
     phone : req.body.phone,
     pass : req.body.password,
-    charity : req.body.charity
   }
  
-  
-  if (charity != "")
-    userController.addCharityRep(user)
-  else
-    userController.addCharity(user)
-/*   var role = req.body.signupas
-
-  if (role === "Charity") {
-    userController.addCharity(user)
-  } else {
-    userController.addCharityRep(user)
-  } */
-
-  res.redirect('login');
+  await userController.addCharity(user)
+  res.send('<h1> Thank you for your registration, we will email you when your account is activated</h1><br><h1><a href=\"index\">Go to home Page</a></h1');
 })
 
 

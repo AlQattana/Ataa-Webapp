@@ -33,6 +33,8 @@ const CharityRepres = require('./routes/Charity-repres');
 const charityProfile = require('./routes/charity-profile');
 const charityReportAccount = require('./routes/charity-reportAccount');
 const charityNotify = require('./routes/charity-notify');
+const signUpAsRepresentative = require('./routes/signUpAsRepresentative');
+const SignOut = require('./routes/SignOut')
 
 // Defining the port
 var port = process.env.PORT
@@ -88,6 +90,8 @@ app.use('/Charity-repres', CharityRepres);
 app.use('/charity-profile', charityProfile);
 app.use('/charity-reportAccount', charityReportAccount);
 app.use('/charity-notify', charityNotify);
+app.use('/signUpAsRepresentative', signUpAsRepresentative)
+app.use('/SignOut', SignOut)
 
 // Defining the routes
 app.get('/', (req, res) => {

@@ -7,7 +7,16 @@ const usersController = require("../controllers/usersController");
 
 // Home page route.
 router.get('/', (req, res) => {
-  res.render('login')
+  if(req.session.type){
+    if(req.session.type == "admin") {
+      res.redirect("adminPage");
+    } else {
+      res.redirect("Charity-Agent");
+    }
+  } else {
+    res.render('login')
+  }
+  
 })
 
 // About page route.
@@ -19,15 +28,27 @@ router.post('/', async (req, res) => {
   var user = await loginController.signIn(email, password);
 
   
-  if(user == 0 || user == undefined){
-    res.send('<h1>Error logging in<h1>');
+  if(user != undefined){
     
-  } else {
-    console.log(user.uid)
     user = await usersController.getUserById(user.uid);
-    req.session.type = user.type;
-    console.log(req.session.type);
-    res.send('<h1>Loged in ...<h1>');
+    
+    user_status = user.status;
+    if(user_status.toLowerCase() != "active"){
+      res.send("Your account is not activated yet ...")
+    } else {
+      req.session.type = user.type;
+      if(user.type == "admin"){
+        res.redirect("adminPage");
+      } 
+      else if(user.type == "charity" || user.type == "charityAgent") {
+        res.redirect("Charity-Agent");
+      }
+      else {
+        res.send("Unauthorized Access");
+      }
+    }
+  } else {
+    res.send('<h1>Error logging in, either username or password are wrong ...<h1>');
   }
 })
 

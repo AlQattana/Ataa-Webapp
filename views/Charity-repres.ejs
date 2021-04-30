@@ -63,22 +63,16 @@
                                             </span>
                                             <% for (var j = 0; j < usersArray.length; j++) { %>
                                                 <% if (usersArray[j].uid == charityRepresentativesArray[i].uid){ %>
-                                                    <span class="title"><%= usersArray[j].name %> - 
-                                                    <% for (var k = 0; k < charitiesArray.length; k++){%>
-                                                        <% if (charitiesArray[k].id == charityRepresentativesArray[i].cid){ %>
-                                                            <%= charitiesArray[k].name %>
-                                                        <% } %>
-                                                    <% } %>
-                                                    </span>
+                                                    <span class="title"><%= usersArray[j].first_name + " " + usersArray[j].last_name %></span>
                                                 <% } %>
                                             <% } %>
                                             <span class="icon"> 
-                                                <a class="subscribe" href="/Charity-repres/accept/<%=charityRepresentativesArray[i].id%>">
+                                                <a class="subscribe" href="/Charity-repres/accept/<%=charityRepresentativesArray[i].uid%>">
                                                     <i class="icon ion-ios-checkmark-outline">
 
                                                     </i>
                                                 </a>
-                                                <a class="flag" href="/Charity-repres/reject/<%=charityRepresentativesArray[i].id%>">
+                                                <a class="flag" href="/Charity-repres/reject/<%=charityRepresentativesArray[i].uid%>">
                                                         <i class="icon ion-android-cancel">
 
                                                         </i>

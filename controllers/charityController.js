@@ -33,11 +33,31 @@ module.exports.getAllCharityRepresentatives = async function(){
     querySnapshot.forEach((charityRepresentativeDoc) => {
         const charityRepresentative = new CharityRepresentative(
           charityRepresentativeDoc.id,
-          charityRepresentativeDoc.data().charity_id,
+          charityRepresentativeDoc.data().cid,
           charityRepresentativeDoc.data().status,
           charityRepresentativeDoc.data().uid
         );
         charityRepresentativesArray.push(charityRepresentative);
+    });
+    return charityRepresentativesArray;
+  });
+  return charityRepresentativesArray;
+};
+
+module.exports.getCharityRepresentativesById = async function(cid){
+  var charityRepresentativesArray = await firestore.collection("charity_representatives").get().then((querySnapshot) => {
+    var charityRepresentativesArray = [];
+    querySnapshot.forEach((charityRepresentativeDoc) => {
+      //var status = charityRepresentativeDoc.data().status;
+      if(charityRepresentativeDoc.data().cid) {
+        const charityRepresentative = new CharityRepresentative(
+          charityRepresentativeDoc.id,
+          charityRepresentativeDoc.data().cid,
+          charityRepresentativeDoc.data().status,
+          charityRepresentativeDoc.data().uid
+        );
+        charityRepresentativesArray.push(charityRepresentative);
+      }
     });
     return charityRepresentativesArray;
   });
@@ -130,12 +150,12 @@ module.exports.getAllPeriodicDonations = async function(){
 
 // This function changes the state of charity to "Active"
 module.exports.confirmCharity = async function(cid){
-    await firestore.collection("charities").doc(cid).update({status: "Active"});
+    await firestore.collection("charities").doc(cid).update({status: "active"});
 };
   
 // This function changes the state of charity to "Rejected"  
 module.exports.rejectCharity = async function(cid){
-    await firestore.collection("charities").doc(cid).update({status: "Rejected"});
+    await firestore.collection("charities").doc(cid).update({status: "rejected"});
 };
 
 // This function changes the state of charity to "Active"

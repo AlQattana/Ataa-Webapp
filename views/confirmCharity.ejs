@@ -69,12 +69,9 @@
                             <div class="tab-pane active" role="tabpanel" id="tab-1">
                                 <ul class="thread-list">
                                     <% for(var i=0; i < charitiesArray.length; i++){%>  
-                                        <% if (charitiesArray[i].status == "Pending"){%> 
+                                        <% if (charitiesArray[i].status == "pending"){%> 
                                         <li class="thread"><span class="time">Apr 21</span><span class="title"><strong><%=charitiesArray[i].name%></strong></span><span class="icon"> <a class="subscribe" href="/confirmCharity/confirm/<%=charitiesArray[i].id %>"><i class="icon ion-ios-checkmark-outline"></i></a><a class="flag" href="/confirmCharity/reject/<%=charitiesArray[i].id %>"><i class="icon ion-android-cancel"></i></a></span></li>
                                         <%}%>
-                                    
-                                    
-                                    
                                     <% } %>
                                     
                                 </ul>
