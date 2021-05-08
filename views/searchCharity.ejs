@@ -72,7 +72,7 @@
                                         <td><a href="/editCharityInformation/<%=charitiesArray[i].id%>"> <%= charitiesArray[i].name %></a></td>
                                         <td><%= charitiesArray[i].specialty %></td>
                                         <% if(charitiesArray[i].location != null) { %>
-                                            <td><a href="https://maps.google.com/?q=<%= charitiesArray[i].location._latitude + ' ' + charitiesArray[i].location.__longitude%>">View on google maps</a></td>
+                                            <td><a href="https://maps.google.com/?q=<%= charitiesArray[i].location._latitude + ',' + charitiesArray[i].location._longitude%>">View on google maps</a></td>
                                         <% } else { %>
                                             <td>No location</td>
                                         <% } %>

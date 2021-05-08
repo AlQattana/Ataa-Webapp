@@ -81,7 +81,7 @@
                                         <% var found = false;%>
                                         <% for(var j = 0; j < usersArray.length; j++){ %>
                                             <% if (usersArray[j].uid == donationRequestsArray[i].uid){%>
-                                                <%= usersArray[j].name %>
+                                                <%= usersArray[j].first_name + " " + usersArray[j].last_name %>
                                                 <% found = true;%>
                                             <%}%>                                          
                                         <%}%>
@@ -89,8 +89,25 @@
                                             <%= "NONE" %>
                                         <%}%>  
                                     </td>
-                                    <td class="text-center" id="date" name="date">15/8/2020</td>
-                                    <td class="text-center">Riyadh</td>
+
+                                    <td class="text-center" id="date" name="date">
+                                        <%
+                                        var date = donationRequestsArray[i].timeStamp.toDate();
+                                        var dd = String(date.getDate()).padStart(2, '0');
+                                        var mm = String(date.getMonth() + 1).padStart(2, '0'); 
+                                        var yyyy = date.getFullYear();
+    
+                                        date = dd + '/' + mm + '/' + yyyy;
+                                        %>
+                                        <%= date %>
+                                    </td>
+                                    
+                                    <% if(donationRequestsArray[i].location != null) { %>
+                                        <td><a href="https://maps.google.com/?q=<%= donationRequestsArray[i].location._latitude + ',' + donationRequestsArray[i].location._longitude%>">View on google maps</a></td>
+                                    <% } else { %>
+                                        <td>No location</td>
+                                    <% } %>
+
                                     <% if (donationRequestsArray[i].status != "canceled"){%>
                                         <td class="text-center" id="status" style="color: #009e60;" name="status"><%=donationRequestsArray[i].status%></td>
                                     <%} else {%>
@@ -107,7 +124,7 @@
                                         <% var found = false;%>
                                         <% for(var j = 0; j < usersArray.length; j++){ %>
                                             <% if (usersArray[j].uid == donationsArray[i].user){%>
-                                                <%= usersArray[j].name %>
+                                                <%= usersArray[j].first_name + " " + usersArray[j].last_name %>
                                                 <% found = true;%>
                                             <%}%>                                          
                                         <%}%>
@@ -115,8 +132,25 @@
                                             <%= "NONE" %>
                                         <%}%>  
                                     </td>
-                                    <td class="text-center" id="date" name="date">15/8/2020</td>
-                                    <td class="text-center">Riyadh</td>
+
+                                    <td class="text-center" id="date" name="date">
+                                        <%
+                                        var date = donationsArray[i].timeStamp.toDate();
+                                        var dd = String(date.getDate()).padStart(2, '0');
+                                        var mm = String(date.getMonth() + 1).padStart(2, '0'); 
+                                        var yyyy = date.getFullYear();
+    
+                                        date = dd + '/' + mm + '/' + yyyy;
+                                        %>
+                                        <%= date %>
+                                    </td>
+
+                                    <% if(donationsArray[i].location != null) { %>
+                                        <td><a href="https://maps.google.com/?q=<%= donationsArray[i].location._latitude + ',' + donationsArray[i].location._longitude%>">View on google maps</a></td>
+                                    <% } else { %>
+                                        <td>No location</td>
+                                    <% } %>
+
                                     <% if (donationsArray[i].status != "canceled"){%>
                                         <td class="text-center" id="status" style="color: #009e60;" name="status"><%=donationsArray[i].status%></td>
                                     <%} else {%>
