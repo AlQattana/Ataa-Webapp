@@ -50,7 +50,7 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#portfolio">manage req\donations</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#charityStand">manage charity stands</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#team">display statics</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index">Sign out</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="SignOut">Sign out</a></li>
                 </ul>
             </div>
         </div>
@@ -73,12 +73,11 @@
                     </thead>
                     
                     <tbody>
-                        <% reportsArray[0].uid %>
                         <% for(var i = 0; i < reportsArray.length; i++){ %>
                         <tr>
                             <% for(var j = 0; j < usersArray.length; j++){ %>
                                 <% if (reportsArray[i].uid == usersArray[j].uid) {%>
-                                    <td class="text-center" id="userName" name="userName"><%= usersArray[j].name%></td>
+                                    <td class="text-center" id="userName" name="userName"><%= usersArray[j].first_name + " " + usersArray[j].last_name%></td>
                                 <% } %>
                             <% } %>
 

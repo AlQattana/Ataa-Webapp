@@ -49,7 +49,7 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#portfolio">manage req\donations</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#charityStand">manage charity stands</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#team">display statics</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index">Sign out</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="SignOut">Sign out</a></li>
                 </ul>
             </div>
         </div>
@@ -67,6 +67,9 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" role="tabpanel" id="tab-1">
+                                <% if(charitiesArray.length > 0) { %>
+                                <span><h1 style="text-align: center;color: #a7871a;">No pending Charities</h1></span>
+                                <% } else { %>
                                 <ul class="thread-list">
                                     <% for(var i=0; i < charitiesArray.length; i++){%>  
                                         <% if (charitiesArray[i].status == "pending"){%> 
@@ -75,6 +78,7 @@
                                     <% } %>
                                     
                                 </ul>
+                                <% } %>
                             </div>
                             <div class="tab-pane" role="tabpanel" id="tab-2"></div>
                             <div class="tab-pane" role="tabpanel" id="tab-3"></div>

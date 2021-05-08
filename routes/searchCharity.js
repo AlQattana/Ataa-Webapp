@@ -4,6 +4,8 @@ var charityController = require('../controllers/charityController')
 
 router.get('/', async (req, res) => {
   var charitiesArray = await charityController.getAllCharities();
+//  https://maps.google.com/?q=<lat>,<lng>
+console.log(charitiesArray[0].location._latitude)
   res.render("searchCharity", {charitiesArray : charitiesArray})
 })
 

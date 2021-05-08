@@ -67,24 +67,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><a id="charityName" href="/editCharityInformation" style="color: rgb(0,0,0);" name="charityName">AA</a></td>
-                                        <td id="charityType" name="charityType">Food</td>
-                                        <td id="charityLocation" name="charityLocation">Dahran</td>
-                                    </tr>
                                     <% for(var i=0; i < charitiesArray.length; i++){%>   
                                     <tr> 
                                         <td><a href="/editCharityInformation/<%=charitiesArray[i].id%>"> <%= charitiesArray[i].name %></a></td>
                                         <td><%= charitiesArray[i].specialty %></td>
-                                        <td><%= charitiesArray[i].location %></td>
+                                        <% if(charitiesArray[i].location != null) { %>
+                                            <td><a href="https://maps.google.com/?q=<%= charitiesArray[i].location._latitude + ' ' + charitiesArray[i].location.__longitude%>">View on google maps</a></td>
+                                        <% } else { %>
+                                            <td>No location</td>
+                                        <% } %>
                                     </tr>
                                     <% } %>
-                                     
-                                    <tr>
-                                        <td>Charity2</td>
-                                        <td>Clothes</td>
-                                        <td>Riyadh</td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -193,7 +186,7 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#portfolio">manage req\donations</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#charityStand">manage charity stands</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminPage/#team">display statics</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index">Sign out</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="SignOut">Sign out</a></li>
                 </ul>
             </div>
         </div>
